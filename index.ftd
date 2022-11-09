@@ -70,20 +70,24 @@ lang: ftd
 
 -- pd.output: Press `shift` key two times to see demo & press ESC to close
 
-\-- as: 
-apps: $apps
+You can call app-switcher copying below lines into your .ftd files
 
-add your apps like given below:
+\-- as.app-switcher: 
+apps: $my-apps
 
-\-- apps: FTD.dev
+add your apps like given in below list:
+
+\-- as.app list my-apps:
+
+\-- my-apps: FTD.dev
 url: https://ftd.dev
 src: $assets.files.images.FTD.svg
 
-\-- apps: FPM.dev
+\-- my-apps: FPM.dev
 url: https://fpm.dev
 src: $assets.files.images.FPM.svg
 
-\-- apps: FifthTry.com
+\-- my-apps: FifthTry.com
 url: https://fifthtry.com
 src: $assets.files.images.Fifthtry.svg
 
