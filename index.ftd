@@ -1,57 +1,186 @@
 -- import: fifthtry.github.io/app-switcher/assets
+-- import: fifthtry.github.io/package-doc/doc as pd
+-- import: fifthtry.github.io/package-doc/code-block as cb
+
+
+-- record app:
+caption title:
+optional string url:
+optional ftd.image-src src:
 
 
 
--- ds.page: Welcome to your [FPM site](https://fpm.dev/)
-
-FPM Blank Package Template Repo
-
-🧑‍🚀 **Seasoned traveler?** update this file. Enjoy!
 
 
---- ds.image: doc-site
-src: $assets.files.doc-site-example.png
+-- app list apps:
+
+-- apps: FTD.dev
+url: https://ftd.dev
+src: $assets.files.images.FTD.svg
+
+-- apps: FPM.dev
+url: https://fpm.dev
+src: $assets.files.images.FPM.svg
+
+-- apps: FifthTry.com
+url: https://fifthtry.com
+src: $assets.files.images.Fifthtry.svg
+
+-- apps: FTD.dev
+url: https://ftd.dev
+src: $assets.files.images.FTD.svg
+
+-- apps: FPM.dev
+url: https://fpm.dev
+src: $assets.files.images.FPM.svg
+
+-- apps: FifthTry.com
+url: https://fifthtry.com
+src: $assets.files.images.Fifthtry.svg
+
+
+
+-- ftd.column:
+id: code-wrap
 width: fill
+align: center
+spacing: 20
+padding-horizontal: 20
+padding-vertical: 20
+background-color: $fpm.color.main.background.base
 
 
---- ds.h1: 🚀 Project Structure
+-- pd.package: App Switcher
+name: fifthtry.github.io/app-switcher
 
-Inside of your FPM project, you'll see the following folders and files:
+The app-switcher package(fifthtry.github.io/app-switcher).
 
+How to use?
 
---- ds.code:
-lang:
+Add below lines into `FPM.ftd` file:
 
-/
-├── .build/
-│   └── index.html
-├── .packages/
-│   └── fifthtry.github.io/
-│   	└── All downloaded dependencies
-│   	
-├── FPM.ftd
-├── index.ftd
-└── README.md
+-- cb.code:
+lang: ftd
+
+\-- fpm.dependency: fifthtry.github.io/app-switcher as as
+
+\-- fpm.auto-import: as
 
 
 
---- ds.h1: 🧞 Commands
+-- pd.output: Press `shift` key two times to see demo & press ESC to close
 
-All commands are run from the root of the project, from a terminal:
+\-- as: 
+apps: $apps
 
---- ds.code:
-lang:
+add your apps like given below:
 
-=======================================================================
-| Command                | Action                                     |
-| :--------------------- | :----------------------------------------- |
-| fpm build              | FPM builder installs all `FPM` dependencies|
-| fpm serve              | Starts local dev server at available port  |
-|                        | `localhost:8000`                           |
-=======================================================================
+\-- apps: FTD.dev
+url: https://ftd.dev
+src: $assets.files.images.FTD.svg
+
+\-- apps: FPM.dev
+url: https://fpm.dev
+src: $assets.files.images.FPM.svg
+
+\-- apps: FifthTry.com
+url: https://fifthtry.com
+src: $assets.files.images.Fifthtry.svg
 
 
---- ds.h1: 👀 Want to learn more?
+-- app-switcher:
+apps: $apps
 
-Feel free to check [our documentation](https://fpm.dev/) or jump into our [FifthTry Discord server](https://discord.gg/bucrdvptYd).
+
+-- container: code-wrap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.column app-switcher:
+if: $is-open
+app list apps:
+boolean is-open: false
+padding-vertical: $fpm.space.space-8
+padding-horizontal: $fpm.space.space-8
+background-color: $fpm.color.main.background.overlay
+border-radius: 10
+$on-global-key[shift-shift]$: $is-open = true
+$on-global-key[esc]$: $is-open = false
+width: fill
+anchor: window
+top: -100
+bottom: 0
+left: 0
+right: 0
+
+--- ftd.image:
+src: $assets.files.images.cross.svg
+width: 24
+height: 24
+$on-click$: $is-open = false
+anchor: parent
+top: 16
+right: 16
+
+--- container: ftd.main
+
+--- ftd.column:
+width: fill
+id: app-wrap
+
+--- ftd.row:
+spacing: 32
+wrap: true
+margin-bottom: -32
+
+--- app-loop: $obj.title
+$loop$: $apps as $obj
+url: $obj.url
+src: $obj.src
+
+
+
+
+
+
+
+
+
+
+-- ftd.column app-loop:
+caption title:
+optional string url:
+optional ftd.image-src src:
+background-color: $fpm.color.main.background.step-1
+background-color if $MOUSE-IN: $fpm.color.main.background.step-2
+padding-vertical: $fpm.space.space-4
+padding-horizontal: $fpm.space.space-4
+border-radius: 8
+margin-bottom: 32
+
+--- ftd.text: $title
+role: $fpm.type.copy-large
+color: $fpm.color.main.text-strong
+
+--- ftd.image:
+src: $src
+width: 60
+height: 60
+link: $url
 

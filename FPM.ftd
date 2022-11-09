@@ -3,6 +3,6 @@
 -- fpm.package: fifthtry.github.io/app-switcher
 download-base-url: https://raw.githubusercontent.com/fifthtry/app-switcher/main
 
--- fpm.dependency: fifthtry.github.io/doc-site as ds
+-- fpm.dependency: fifthtry.github.io/package-doc as pd
 
--- fpm.auto-import: ds
+-- fpm.auto-import: fpm
