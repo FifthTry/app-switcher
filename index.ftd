@@ -233,13 +233,16 @@ spacing: 12
 height: 120
 $on-mouse-enter$: $is-active = true
 $on-mouse-leave$: $is-active = false
+background-color: $fpm.color.main.background.step-1
+background-color if $PARENT.current == $SIBLING-INDEX: $fpm.color.main.cta-tertiary.base
+background-color if $is-active: $fpm.color.main.cta-tertiary.base
+border-radius: 6
 
 --- ftd.column:
 width: 90
 height: 90
-background-color: $fpm.color.main.background.step-1
-background-color if $PARENT.current == $SIBLING-INDEX: $fpm.color.main.background.step-2
-background-color if $is-active: $fpm.color.main.background.step-2
+background-color if $PARENT.current == $SIBLING-INDEX: $fpm.color.main.cta-tertiary.base
+background-color if $is-active: $fpm.color.main.cta-tertiary.base
 border-radius: 6
 
 --- ftd.image:
@@ -261,6 +264,7 @@ role: $fpm.type.fine-print
 color: $fpm.color.main.text-strong
 align: center
 link: $url
+padding-bottom: 4
 
 
 
