@@ -187,6 +187,7 @@ id: inner-wrap
 padding-top: $fpm.space.space-10
 background-color: $fpm.color.main.background.overlay
 height if $is-mobile: fill
+padding-bottom: $fpm.space.space-7
 
 --- ftd.image:
 src: $assets.files.images.cross.svg
