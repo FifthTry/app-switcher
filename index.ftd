@@ -18,8 +18,6 @@ optional ftd.image-src src:
 
 
 
-
-
 -- app list apps:
 
 -- apps: FTD.dev
@@ -166,22 +164,29 @@ src: $assets.files.images.Fifthtry.svg
 
 
 -- ftd.column app-switcher:
-if: $is-open
 boolean is-open: false
 integer current: 1	
-padding-top: $fpm.space.space-6
-background-color: $fpm.color.main.background.overlay
 border-radius: 10
-$on-global-key[shift-shift]$: $is-open = true
-$on-global-key[esc]$: $is-open = false
 anchor: window
-position: center
+position if not $is-mobile: center
+position if $is-mobile: top
 open: true
 append-at: app-wrap
 width: 520
 width if $is-mobile: fill
 z-index: 999999
 padding-left: 0
+$on-global-key[shift-shift]$: $is-open = true
+$on-global-key[esc]$: $is-open = false
+height if $is-mobile: fill
+
+--- ftd.column:
+if: $is-open
+width: fill
+id: inner-wrap
+padding-top: $fpm.space.space-10
+background-color: $fpm.color.main.background.overlay
+height if $is-mobile: fill
 
 --- ftd.image:
 src: $assets.files.images.cross.svg
@@ -191,12 +196,15 @@ $on-click$: $is-open = false
 anchor: parent
 top: -10
 right: -4
+top if $is-mobile: 10
+right if $is-mobile: 20
 
---- container: ftd.main
+--- container: inner-wrap
 
 --- ftd.column:
 width: fill
 max-height: 500
+max-height if $is-mobile: fill
 overflow-y: auto
 move-right: 32
 
@@ -209,7 +217,23 @@ position: center
 $on-global-key[right]$: increment $current clamp 1 $CHILDREN-COUNT	
 $on-global-key[left]$: decrement $current clamp 1 $CHILDREN-COUNT
 
+--- container: ftd.main
 
+--- ftd.column:
+width: fill
+
+--- ftd.image:
+if: $is-mobile
+src: $assets.files.images.app-switcher-mobile.svg
+anchor: window
+top: 20
+right: 20
+width: 40
+height: 40
+width if $is-open: 0
+height if $is-open: 0
+z-index: 99999
+$on-click$: $is-open = true
 
 
 
