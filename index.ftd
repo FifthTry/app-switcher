@@ -2,8 +2,8 @@
 -- import: fifthtry.github.io/package-doc/doc as pd
 -- import: fifthtry.github.io/package-doc/code-block as cb
 
-
-
+-- fpm.app-ui apps:
+$processor$: fpm-apps
 
 -- boolean is-mobile: false
 
@@ -11,38 +11,13 @@
 if: $ftd.device == mobile
 
 
--- record app:
-caption title:
-optional string url:
-optional ftd.image-src src:
 
 
 
--- app list apps:
 
--- apps: FTD.dev
-url: https://ftd.dev
-src: $assets.files.images.FTD.svg
 
--- apps: FPM.dev
-url: https://fpm.dev
-src: $assets.files.images.FPM.svg
 
--- apps: FifthTry.com
-url: https://fifthtry.com
-src: $assets.files.images.Fifthtry.svg
 
--- apps: FTD.dev
-url: https://ftd.dev
-src: $assets.files.images.FTD.svg
-
--- apps: FPM.dev
-url: https://fpm.dev
-src: $assets.files.images.FPM.svg
-
--- apps: FifthTry.com
-url: https://fifthtry.com
-src: $assets.files.images.Fifthtry.svg
 
 
 
@@ -72,88 +47,24 @@ lang: ftd
 
 \-- fpm.auto-import: as
 
+-- pd.hidden-code: apps definitions
 
+\-- fpm.app-ui apps:
+$processor$: fpm-apps
 
 -- pd.output: Press `shift` key two times to see demo & press ESC to close
 
 You can call app-switcher copying below lines into your .ftd files
 
 \-- as.app-switcher:
+apps: $apps
 
-\--- as.my-app: FTD.dev
-url: https://ftd.dev
-src: $assets.files.images.FTD.svg
 
-\--- as.my-app: FPM.dev
-url: https://fpm.dev
-src: $assets.files.images.FPM.svg
 
-\--- as.my-app: FifthTry.com
-url: https://fifthtry.com
-src: $assets.files.images.Fifthtry.svg
 
 
 -- app-switcher:
-
---- my-app: FTD.dev
-url: https://ftd.dev
-src: $assets.files.images.FTD.svg
-
---- my-app: FPM.dev
-url: https://fpm.dev
-src: $assets.files.images.FPM.svg
-
---- my-app: FifthTry.com
-url: https://fifthtry.com
-src: $assets.files.images.Fifthtry.svg
-
---- my-app: FTD.dev
-url: https://ftd.dev
-src: $assets.files.images.FTD.svg
-
---- my-app: FPM.dev
-url: https://fpm.dev
-src: $assets.files.images.FPM.svg
-
---- my-app: FifthTry.com
-url: https://fifthtry.com
-src: $assets.files.images.Fifthtry.svg
-
---- my-app: FTD.dev
-url: https://ftd.dev
-src: $assets.files.images.FTD.svg
-
---- my-app: FPM.dev
-url: https://fpm.dev
-src: $assets.files.images.FPM.svg
-
---- my-app: FifthTry.com
-url: https://fifthtry.com
-src: $assets.files.images.Fifthtry.svg
-
---- my-app: FTD.dev
-url: https://ftd.dev
-src: $assets.files.images.FTD.svg
-
---- my-app: FPM.dev
-url: https://fpm.dev
-src: $assets.files.images.FPM.svg
-
---- my-app: FifthTry.com
-url: https://fifthtry.com
-src: $assets.files.images.Fifthtry.svg
-
--- container: code-wrap
-
-
-
-
-
-
-
-
-
-
+apps: $apps
 
 
 
@@ -164,77 +75,151 @@ src: $assets.files.images.Fifthtry.svg
 
 
 -- ftd.column app-switcher:
+fpm.app-ui apps:
 boolean is-open: false
-integer current: 1	
+integer $current-app: 0
 border-radius: 10
 anchor: window
-position if not $is-mobile: center
-position if $is-mobile: top
-open: true
-append-at: app-wrap
-width: 520
-width if $is-mobile: fill
+top: 0
+bottom: 0
+left: 0
+right: 0
+width: fill
+height: fill
 z-index: 999999
-padding-left: 0
 $on-global-key[shift-shift]$: $is-open = true
 $on-global-key[esc]$: $is-open = false
 height if $is-mobile: fill
+
+--- ftd.row:
+if: not $is-mobile
+width: fill
+height: fill
+
+--- ftd.column:
+width: fill
+align: center
+
+--- ftd.column:
+min-width: 544
+max-width: 544
+width: auto
+align: center
 
 --- ftd.column:
 if: $is-open
 width: fill
 id: inner-wrap
+padding-left: 42
+border-radius: 6
 padding-top: $fpm.space.space-10
 background-color: $fpm.color.main.background.overlay
-height if $is-mobile: fill
 padding-bottom: $fpm.space.space-7
+
+--- ftd.column:
+anchor: parent
+top: -14
+right: -14
+border-radius: 100
+padding-vertical: $fpm.space.space-1
+padding-horizontal: $fpm.space.space-1
+background-color: $fpm.color.main.background.step-2
 
 --- ftd.image:
 src: $assets.files.images.cross.svg
-width: 32
-height: 32
+width: 24
+height: 24
 $on-click$: $is-open = false
-anchor: parent
-top: -10
-right: -4
-top if $is-mobile: 10
-right if $is-mobile: 20
 
 --- container: inner-wrap
 
 --- ftd.column:
 width: fill
 max-height: 500
-max-height if $is-mobile: fill
 overflow-y: auto
-move-right: 32
 
 --- ftd.row:
-id: app-wrap
 width: fill
 wrap: true
 margin-right: -32
 position: center
-$on-global-key[right]$: increment $current clamp 1 $CHILDREN-COUNT	
-$on-global-key[left]$: decrement $current clamp 1 $CHILDREN-COUNT
+$on-global-key[right]$: increment $current-app clamp 0 $apps.len
+$on-global-key[left]$: decrement $current-app clamp 0 $apps.len
+
+--- my-app: 
+index: $obj.index
+item: $obj.item
+$loop$: $apps.items as $obj
+$current-app: $current-app
 
 --- container: ftd.main
 
 --- ftd.column:
+if: $is-mobile
 width: fill
+height: fill
 
 --- ftd.image:
-if: $is-mobile
 src: $assets.files.images.app-switcher-mobile.svg
 anchor: window
-top: 20
-right: 20
+left: 14
+bottom: 20
 width: 40
 height: 40
 width if $is-open: 0
 height if $is-open: 0
 z-index: 99999
 $on-click$: $is-open = true
+
+--- ftd.column:
+if: $is-open
+width: fill
+height: fill
+background-color: $fpm.color.main.background.overlay
+border-width: 1
+padding-vertical: 56
+padding-left: 32
+border-radius: 8
+align: center
+z-index: 9999
+id: wrap-context
+
+--- ftd.column:
+anchor: parent
+top: 4
+right: 4
+border-radius: 100
+padding-vertical: $fpm.space.space-1
+padding-horizontal: $fpm.space.space-1
+background-color: $fpm.color.main.background.step-2
+
+--- ftd.image:
+src: $assets.files.images.cross.svg
+width: 32
+height: 32
+$on-click$: $is-open = false
+
+--- container:  wrap-context
+
+--- ftd.row:
+width: fill
+height: fill
+overflow-y: auto
+
+--- ftd.column:
+width: fill
+align: center
+
+--- ftd.row:
+align: center
+wrap: true
+
+--- my-app: 
+index: $obj.index
+item: $obj.item
+$loop$: $apps.items as $obj
+$current-app: $current-app
+
 
 
 
@@ -245,55 +230,74 @@ $on-click$: $is-open = true
 
 
 -- ftd.column my-app:
-caption title:
-optional string url:
-optional ftd.image-src src:
+integer index:
+fpm.app-ui-item item:
 boolean is-active: false
 margin-bottom: 32
-$on-global-key[enter]$: message-host $app-obj
-max-width: 98
+integer $current-app: 
+/$on-global-key[enter]$: message-host $app-obj
+max-width: 90
+min-width: 90
 overflow-x: auto
-margin-right: 32
+margin-right if not $is-mobile: 32
+margin-right if  $is-mobile: 28
 spacing: 12
-height: 120
+;height: 140
 $on-mouse-enter$: $is-active = true
 $on-mouse-leave$: $is-active = false
-background-color: $fpm.color.main.background.step-1
-background-color if $PARENT.current == $SIBLING-INDEX: $fpm.color.main.cta-tertiary.base
-background-color if $is-active: $fpm.color.main.cta-tertiary.base
+;background-color: $fpm.color.main.background.step-1
 border-radius: 6
 
 --- ftd.column:
 width: 90
 height: 90
-background-color if $PARENT.current == $SIBLING-INDEX: $fpm.color.main.cta-tertiary.base
+background-color: $fpm.color.main.background.step-1
+background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
 background-color if $is-active: $fpm.color.main.cta-tertiary.base
 border-radius: 6
 
 --- ftd.image:
-src: $src
+if: $item.icon is not null
+src: $item.icon
 width: fill
 height: auto
-link: $url
+link: $item.url
 align: center
-$on-global-key[enter]$: message-host $app-obj
+/$on-global-key[enter]$: message-host $app-obj
 position: center
 anchor: parent
-padding-horizontal: 4
-padding-vertical: 4
+padding-horizontal: $fpm.space.space-1
+padding-vertical: $fpm.space.space-1
+border-radius: 8
+
+--- ftd.image:
+if: $item.icon is  null
+src: $assets.files.images.FTD.svg
+width: fill
+height: auto
+link: $item.url
+align: center
+/$on-global-key[enter]$: message-host $app-obj
+position: center
+anchor: parent
+padding-horizontal: $fpm.space.space-1
+padding-vertical: $fpm.space.space-1
+border-radius: 8
 
 --- container: ftd.main
 
---- ftd.text: $title
+--- ftd.text: $item.name
 role: $fpm.type.fine-print
 color: $fpm.color.main.text-strong
-align: center
-link: $url
-padding-bottom: 4
+text-align: center
+width: fill
+link: $item.url
+padding-bottom: $fpm.space.space-1
 
 
 
 
--- object app-obj:
+
+/-- object app-obj:
 function: enter
 url: 
