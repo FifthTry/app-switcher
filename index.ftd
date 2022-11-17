@@ -268,8 +268,6 @@ position: center
 anchor: parent
 padding-horizontal: $fpm.space.space-1
 padding-vertical: $fpm.space.space-1
-background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
-background-color if $is-active: $fpm.color.main.cta-tertiary.base
 border-radius: 8
 
 --- ftd.image:
@@ -284,8 +282,6 @@ position: center
 anchor: parent
 padding-horizontal: $fpm.space.space-1
 padding-vertical: $fpm.space.space-1
-background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
-background-color if $is-active: $fpm.color.main.cta-tertiary.base
 border-radius: 8
 
 --- container: ftd.main
