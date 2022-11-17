@@ -8,7 +8,7 @@ download-base-url: https://raw.githubusercontent.com/fifthtry/app-switcher/main
 -- fpm.auto-import: fpm
 
 
--- fpm.app: Todos
+-- fpm.app: Todos 
 mount-point: /todos/
 package: kameri-app.herokuapp.com
 end-point: https://kameri-service.herokuapp.com
@@ -16,7 +16,7 @@ readers: fpm-fans
 /config: db_url=$ENV.DB_URL
 /config: name=Upadhyay Khanadan
 
--- fpm.app: Todos for Family
+-- fpm.app: Kameri App
 mount-point: /todos/
 package: kameri-app.herokuapp.com
 end-point: https://kameri-service.herokuapp.com
@@ -25,7 +25,7 @@ readers: fpm-fans
 /config: name=Upadhyay Khanadan
 
 
--- fpm.app: Todos for Family
+-- fpm.app: Movie DB
 mount-point: /todos/
 package: kameri-app.herokuapp.com
 end-point: https://kameri-service.herokuapp.com
