@@ -44,34 +44,19 @@ lang: ftd
 \-- fpm.auto-import: as
 
 
+-- pd.hidden-code: apps definitions
+
+
+\ -- fpm.app-ui apps:
+$processor$: fpm-apps
+
 
 -- pd.output: Press `shift` key two times to see demo & press ESC to close
 
 You can call app-switcher copying below lines into your .ftd files
 
 \-- as.app-switcher:
-
-\--- as.my-app: FTD.dev
-url: https://ftd.dev
-src: $assets.files.images.FTD.svg
-
-\--- as.my-app: FPM.dev
-url: https://fpm.dev
-src: $assets.files.images.FPM.svg
-
-\--- as.my-app: FifthTry.com
-url: https://fifthtry.com
-src: $assets.files.images.Fifthtry.svg
-
-
-
-
-
-
-
-
-
-
+apps: $apps
 
 
 
@@ -88,23 +73,37 @@ boolean is-open: false
 integer $current-app: 0
 border-radius: 10
 anchor: window
-position if not $is-mobile: center
-position if $is-mobile: top
-max-width: 550
-width: auto
-width if $is-mobile: fill
+top: 0
+bottom: 0
+left: 0
+right: 0
+width: fill
+height: fill
 z-index: 999999
-padding-left: 0
-padding-right: 24
 $on-global-key[shift-shift]$: $is-open = true
 $on-global-key[esc]$: $is-open = false
 height if $is-mobile: fill
 
+--- ftd.row:
+if: not $is-mobile
+width: fill
+height: fill
+
+--- ftd.column:
+width: fill
+align: center
+
+--- ftd.column:
+max-width: 554
+width: auto
+width if $is-mobile: fill
+align: center
 
 --- ftd.column:
 if: $is-open
 width: fill
 id: inner-wrap
+padding-left: 32
 padding-top: $fpm.space.space-10
 background-color: $fpm.color.main.background.overlay
 height if $is-mobile: fill
@@ -116,8 +115,8 @@ width: 32
 height: 32
 $on-click$: $is-open = false
 anchor: parent
-top: -10
-right: -4
+top: -6
+right: -6
 top if $is-mobile: 10
 right if $is-mobile: 20
 
@@ -128,9 +127,6 @@ width: fill
 max-height: 500
 max-height if $is-mobile: fill
 overflow-y: auto
-move-right: 32
-
---- ftd.integer: $apps.len
 
 --- ftd.row:
 width: fill
@@ -142,17 +138,18 @@ $on-global-key[left]$: decrement $current-app clamp 0 $apps.len
 
 --- my-app: 
 index: $obj.index
-item-one: $obj.item
+item: $obj.item
 $loop$: $apps.items as $obj
 $current-app: $current-app
 
 --- container: ftd.main
 
 --- ftd.column:
+if: $is-mobile
 width: fill
+height: fill
 
 --- ftd.image:
-if: $is-mobile
 src: $assets.files.images.app-switcher-mobile.svg
 anchor: window
 top: 20
@@ -164,20 +161,68 @@ height if $is-open: 0
 z-index: 99999
 $on-click$: $is-open = true
 
+--- ftd.column:
+if: $is-open
+width: fill
+height: fill
+background-color: $fpm.color.main.background.overlay
+border-width: 1
+padding-vertical: 35
+padding-left: 32
+border-radius: 8
+align: center
+z-index: 9999
+id: wrap-context
+
+--- ftd.image:
+src: $assets.files.images.cross.svg
+width: 32
+height: 32
+$on-click$: $is-open = false
+anchor: parent
+top: 0
+right:0
+
+--- container:  wrap-context
+
+--- ftd.row:
+width: fill
+height: fill
+
+--- ftd.column:
+width: fill
+align: center
+
+--- ftd.row:
+align: center
+wrap: true
+
+--- my-app: 
+index: $obj.index
+item: $obj.item
+$loop$: $apps.items as $obj
+$current-app: $current-app
+
+
+
+
+
+
+
 
 
 
 -- ftd.column my-app:
 integer index:
-fpm.app-ui-item item-one:
+fpm.app-ui-item item:
 boolean is-active: false
-optional ftd.image-src src:
 margin-bottom: 32
 integer $current-app: 
 /$on-global-key[enter]$: message-host $app-obj
 max-width: 98
 overflow-x: auto
-margin-right: 32
+margin-right if not $is-mobile: 32
+margin-right if  $is-mobile: 16
 spacing: 12
 height: 120
 $on-mouse-enter$: $is-active = true
@@ -187,8 +232,6 @@ background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
 background-color if $is-active: $fpm.color.main.cta-tertiary.base
 border-radius: 6
 
-
-
 --- ftd.column:
 width: 90
 height: 90
@@ -197,10 +240,11 @@ background-color if $is-active: $fpm.color.main.cta-tertiary.base
 border-radius: 6
 
 --- ftd.image:
-src: $src
+src: $item.icon
+if: $item.icon is not null
 width: fill
 height: auto
-link: $item-one.url
+link: $item.url
 align: center
 /$on-global-key[enter]$: message-host $app-obj
 position: center
@@ -210,13 +254,14 @@ padding-vertical: 4
 
 --- container: ftd.main
 
---- ftd.text: $item-one.name
+--- ftd.text: $item.name
 role: $fpm.type.fine-print
 color: $fpm.color.main.text-strong
 text-align: center
 width: fill
-link: $item-one.url
+link: $item.url
 padding-bottom: 4
+
 
 
 
