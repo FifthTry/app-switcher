@@ -108,21 +108,27 @@ if: $is-open
 width: fill
 id: inner-wrap
 padding-left: 42
+border-radius: 6
 padding-top: $fpm.space.space-10
 background-color: $fpm.color.main.background.overlay
 height if $is-mobile: fill
 padding-bottom: $fpm.space.space-7
 
+--- ftd.column:
+anchor: parent
+top: -14
+right: -14
+border-radius: 100
+padding-vertical: $fpm.space.space-1
+padding-horizontal: $fpm.space.space-1
+background-color: $fpm.color.main.background.step-2
+
+
 --- ftd.image:
 src: $assets.files.images.cross.svg
-width: 32
-height: 32
+width: 24
+height: 24
 $on-click$: $is-open = false
-anchor: parent
-top: -6
-right: -6
-top if $is-mobile: 10
-right if $is-mobile: 20
 
 --- container: inner-wrap
 
@@ -171,21 +177,28 @@ width: fill
 height: fill
 background-color: $fpm.color.main.background.overlay
 border-width: 1
-padding-vertical: 35
+padding-vertical: 56
 padding-left: 32
 border-radius: 8
 align: center
 z-index: 9999
 id: wrap-context
 
+--- ftd.column:
+anchor: parent
+top: 4
+right: 4
+border-radius: 100
+padding-vertical: $fpm.space.space-1
+padding-horizontal: $fpm.space.space-1
+background-color: $fpm.color.main.background.step-2
+
 --- ftd.image:
 src: $assets.files.images.cross.svg
 width: 32
 height: 32
 $on-click$: $is-open = false
-anchor: parent
-top: 0
-right:0
+
 
 --- container:  wrap-context
 
@@ -225,22 +238,22 @@ boolean is-active: false
 margin-bottom: 32
 integer $current-app: 
 /$on-global-key[enter]$: message-host $app-obj
-max-width: 98
+max-width: 90
+min-width: 90
 overflow-x: auto
 margin-right if not $is-mobile: 32
-margin-right if  $is-mobile: 16
+margin-right if  $is-mobile: 28
 spacing: 12
-height: 120
+;height: 140
 $on-mouse-enter$: $is-active = true
 $on-mouse-leave$: $is-active = false
-background-color: $fpm.color.main.background.step-1
-background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
-background-color if $is-active: $fpm.color.main.cta-tertiary.base
+;background-color: $fpm.color.main.background.step-1
 border-radius: 6
 
 --- ftd.column:
 width: 90
 height: 90
+background-color: $fpm.color.main.background.step-1
 background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
 background-color if $is-active: $fpm.color.main.cta-tertiary.base
 border-radius: 6
@@ -270,6 +283,8 @@ position: center
 anchor: parent
 padding-horizontal: 4
 padding-vertical: 4
+background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
+background-color if $is-active: $fpm.color.main.cta-tertiary.base
 
 --- ftd.image:
 if: $item.icon is  null
