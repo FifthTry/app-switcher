@@ -61,6 +61,9 @@ apps: $apps
 
 
 
+-- app-switcher:
+apps: $apps
+
 
 
 
@@ -94,7 +97,8 @@ width: fill
 align: center
 
 --- ftd.column:
-max-width: 554
+min-width: 570
+max-width: 570
 width: auto
 width if $is-mobile: fill
 align: center
@@ -103,7 +107,7 @@ align: center
 if: $is-open
 width: fill
 id: inner-wrap
-padding-left: 32
+padding-left: 42
 padding-top: $fpm.space.space-10
 background-color: $fpm.color.main.background.overlay
 height if $is-mobile: fill
@@ -152,8 +156,8 @@ height: fill
 --- ftd.image:
 src: $assets.files.images.app-switcher-mobile.svg
 anchor: window
-top: 20
-right: 20
+left: 14
+bottom: 20
 width: 40
 height: 40
 width if $is-open: 0
@@ -188,6 +192,8 @@ right:0
 --- ftd.row:
 width: fill
 height: fill
+overflow-y: auto
+
 
 --- ftd.column:
 width: fill
@@ -239,9 +245,35 @@ background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
 background-color if $is-active: $fpm.color.main.cta-tertiary.base
 border-radius: 6
 
---- ftd.image:
-src: $item.icon
+/--- ftd.image:
 if: $item.icon is not null
+src: $item.icon
+width: fill
+height: auto
+link: $item.url
+align: center
+/$on-global-key[enter]$: message-host $app-obj
+position: center
+anchor: parent
+padding-horizontal: 4
+padding-vertical: 4
+
+
+--- ftd.text:
+if: $item.icon is not null
+text: $item.icon
+width: fill
+link: $item.url
+align: center
+/$on-global-key[enter]$: message-host $app-obj
+position: center
+anchor: parent
+padding-horizontal: 4
+padding-vertical: 4
+
+--- ftd.image:
+if: $item.icon is  null
+src: $assets.files.images.FTD.svg
 width: fill
 height: auto
 link: $item.url
