@@ -5,17 +5,21 @@
 -- fpm.app-ui apps:
 $processor$: fpm-apps
 
-
 -- boolean is-mobile: false
 
 -- is-mobile: true
 if: $ftd.device == mobile
 
 
--- record app:
-caption title:
-optional string url:
-optional ftd.image-src src:
+
+
+
+
+
+
+
+
+
 
 -- ftd.column:
 id: code-wrap
@@ -43,13 +47,10 @@ lang: ftd
 
 \-- fpm.auto-import: as
 
-
 -- pd.hidden-code: apps definitions
 
-
-\ -- fpm.app-ui apps:
+\-- fpm.app-ui apps:
 $processor$: fpm-apps
-
 
 -- pd.output: Press `shift` key two times to see demo & press ESC to close
 
@@ -61,8 +62,11 @@ apps: $apps
 
 
 
+
 -- app-switcher:
 apps: $apps
+
+
 
 
 
@@ -100,7 +104,6 @@ align: center
 min-width: 544
 max-width: 544
 width: auto
-width if $is-mobile: fill
 align: center
 
 --- ftd.column:
@@ -111,7 +114,6 @@ padding-left: 42
 border-radius: 6
 padding-top: $fpm.space.space-10
 background-color: $fpm.color.main.background.overlay
-height if $is-mobile: fill
 padding-bottom: $fpm.space.space-7
 
 --- ftd.column:
@@ -122,7 +124,6 @@ border-radius: 100
 padding-vertical: $fpm.space.space-1
 padding-horizontal: $fpm.space.space-1
 background-color: $fpm.color.main.background.step-2
-
 
 --- ftd.image:
 src: $assets.files.images.cross.svg
@@ -135,7 +136,6 @@ $on-click$: $is-open = false
 --- ftd.column:
 width: fill
 max-height: 500
-max-height if $is-mobile: fill
 overflow-y: auto
 
 --- ftd.row:
@@ -199,14 +199,12 @@ width: 32
 height: 32
 $on-click$: $is-open = false
 
-
 --- container:  wrap-context
 
 --- ftd.row:
 width: fill
 height: fill
 overflow-y: auto
-
 
 --- ftd.column:
 width: fill
@@ -274,20 +272,6 @@ background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
 background-color if $is-active: $fpm.color.main.cta-tertiary.base
 border-radius: 8
 
-/--- ftd.text:
-if: $item.icon is not null
-text: $item.icon
-width: fill
-link: $item.url
-align: center
-/$on-global-key[enter]$: message-host $app-obj
-position: center
-anchor: parent
-padding-horizontal: $fpm.space.space-1
-padding-vertical: $fpm.space.space-1
-background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
-background-color if $is-active: $fpm.color.main.cta-tertiary.base
-
 --- ftd.image:
 if: $item.icon is  null
 src: $assets.files.images.FTD.svg
@@ -302,6 +286,7 @@ padding-horizontal: $fpm.space.space-1
 padding-vertical: $fpm.space.space-1
 background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
 background-color if $is-active: $fpm.color.main.cta-tertiary.base
+border-radius: 8
 
 --- container: ftd.main
 
