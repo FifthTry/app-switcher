@@ -97,8 +97,8 @@ width: fill
 align: center
 
 --- ftd.column:
-min-width: 570
-max-width: 570
+min-width: 544
+max-width: 544
 width: auto
 width if $is-mobile: fill
 align: center
@@ -258,7 +258,7 @@ background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
 background-color if $is-active: $fpm.color.main.cta-tertiary.base
 border-radius: 6
 
-/--- ftd.image:
+--- ftd.image:
 if: $item.icon is not null
 src: $item.icon
 width: fill
@@ -268,11 +268,13 @@ align: center
 /$on-global-key[enter]$: message-host $app-obj
 position: center
 anchor: parent
-padding-horizontal: 4
-padding-vertical: 4
+padding-horizontal: $fpm.space.space-1
+padding-vertical: $fpm.space.space-1
+background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
+background-color if $is-active: $fpm.color.main.cta-tertiary.base
+border-radius: 8
 
-
---- ftd.text:
+/--- ftd.text:
 if: $item.icon is not null
 text: $item.icon
 width: fill
@@ -281,8 +283,8 @@ align: center
 /$on-global-key[enter]$: message-host $app-obj
 position: center
 anchor: parent
-padding-horizontal: 4
-padding-vertical: 4
+padding-horizontal: $fpm.space.space-1
+padding-vertical: $fpm.space.space-1
 background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
 background-color if $is-active: $fpm.color.main.cta-tertiary.base
 
@@ -296,8 +298,10 @@ align: center
 /$on-global-key[enter]$: message-host $app-obj
 position: center
 anchor: parent
-padding-horizontal: 4
-padding-vertical: 4
+padding-horizontal: $fpm.space.space-1
+padding-vertical: $fpm.space.space-1
+background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
+background-color if $is-active: $fpm.color.main.cta-tertiary.base
 
 --- container: ftd.main
 
@@ -307,7 +311,7 @@ color: $fpm.color.main.text-strong
 text-align: center
 width: fill
 link: $item.url
-padding-bottom: 4
+padding-bottom: $fpm.space.space-1
 
 
 
