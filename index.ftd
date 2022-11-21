@@ -86,6 +86,7 @@ width: fill
 $on-global-key[shift-shift]$: $is-open = true
 $on-global-key[esc]$: $is-open = false
 if: $apps.items is not empty
+z-index: 1000
 
 --- ftd.row:
 if: not $is-mobile
