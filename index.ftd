@@ -1,299 +1,45 @@
--- import: fifthtry.github.io/app-switcher/assets
--- import: fifthtry.github.io/package-doc/doc as pd
--- import: fifthtry.github.io/package-doc/code-block as cb
+-- import: function as fn
 
--- fpm.app-ui apps:
-$processor$: fpm-apps
+-- boolean $flag: true
 
--- boolean is-mobile: false
+-- ftd.text: Enter mouse
+color: red
+color if { flag }: green
+$on-mouse-enter$: $set($a = $flag, v = false)
+$on-mouse-leave$: $set($a = $flag, v = true)
 
--- is-mobile: true
-if: $ftd.device == mobile
 
+-- boolean $flag2: true
 
+-- ftd.text: Click Outside
+color: red
+color if { flag2 }: green
+$on-click-outside$: $toggle($a = $flag2)
 
 
+-- boolean $flag3: true
 
+-- ftd.text: Type ctrl and a simultaneously
+color: red
+color if { flag3 }: green
+$on-global-key[d-a]$: $toggle($a = $flag3)
 
 
+-- boolean $flag4: true
 
+-- ftd.text: Type shift and shift sequentially
+color: red
+color if { flag4 }: green
+$on-global-key-seq[f-f]$: $toggle($a = $flag4)
 
 
+-- void toggle(a):
+boolean $a:
 
+a = !a
 
--- ftd.column:
-id: code-wrap
-width: fill
-align: center
-spacing: 20
-padding-horizontal: 20
-padding-vertical: 20
-background-color: $fpm.color.main.background.base
+-- void set(a,v):
+boolean $a:
+boolean v:
 
-
--- pd.package: App Switcher
-name: fifthtry.github.io/app-switcher
-
-The app-switcher package(fifthtry.github.io/app-switcher).
-
-How to use?
-
-Add below lines into `FPM.ftd` file:
-
--- cb.code:
-lang: ftd
-
-\-- fpm.dependency: fifthtry.github.io/app-switcher as as
-
-\-- fpm.auto-import: as
-
--- pd.hidden-code: apps definitions
-
-\-- fpm.app-ui apps:
-$processor$: fpm-apps
-
--- pd.output: Press `shift` key two times to see demo & press ESC to close
-
-You can call app-switcher copying below lines into your .ftd files
-
-\-- as.app-switcher:
-apps: $apps
-
-
-
-
-
--- app-switcher:
-apps: $apps
-
-
-
-
-
-
-
-
-
--- ftd.column app-switcher:
-fpm.app-ui apps:
-boolean is-open: false
-integer $current-app: 0
-border-radius: 10
-anchor: window
-position if $is-open: center
-position if not $is-open: bottom-left
-width: fill
-$on-global-key[shift-shift]$: $is-open = true
-$on-global-key[esc]$: $is-open = false
-if: $apps.items is not empty
-z-index: 1000
-
---- ftd.row:
-if: not $is-mobile
-width: fill
-height: fill
-
---- ftd.column:
-width: fill
-align: center
-
---- ftd.column:
-min-width: 544
-max-width: 544
-width: auto
-align: center
-
---- ftd.column:
-if: $is-open
-width: fill
-id: inner-wrap
-padding-left: 42
-border-radius: 6
-padding-top: $fpm.space.space-10
-background-color: $fpm.color.main.background.overlay
-padding-bottom: $fpm.space.space-7
-
---- ftd.column:
-anchor: parent
-top: -14
-right: -14
-border-radius: 100
-padding-vertical: $fpm.space.space-1
-padding-horizontal: $fpm.space.space-1
-background-color: $fpm.color.main.background.step-2
-
---- ftd.image:
-src: $assets.files.images.cross.svg
-width: 24
-height: 24
-$on-click$: $is-open = false
-
---- container: inner-wrap
-
---- ftd.column:
-width: fill
-max-height: 500
-overflow-y: auto
-
---- ftd.row:
-width: fill
-wrap: true
-margin-right: -32
-position: center
-$on-global-key[right]$: increment $current-app clamp 0 $apps.len
-$on-global-key[left]$: decrement $current-app clamp 0 $apps.len
-
---- my-app: 
-index: $obj.index
-item: $obj.item
-$loop$: $apps.items as $obj
-$current-app: $current-app
-
---- container: ftd.main
-
---- ftd.image:
-src: $assets.files.images.app-switcher-mobile.svg
-anchor: window
-left: 14
-bottom: 20
-width: 40
-height: 40
-width if $is-open: 0
-height if $is-open: 0
-z-index: 99999
-$on-click$: $is-open = true
-
---- ftd.column:
-if: $is-mobile
-width: fill
-
---- ftd.column:
-if: $is-open
-width: fill
-height: fill
-background-color: $fpm.color.main.background.overlay
-border-width: 1
-padding-vertical: 56
-padding-left: 32
-border-radius: 8
-align: center
-z-index: 9999
-id: wrap-context
-
---- ftd.column:
-anchor: parent
-top: 4
-right: 4
-border-radius: 100
-padding-vertical: $fpm.space.space-1
-padding-horizontal: $fpm.space.space-1
-background-color: $fpm.color.main.background.step-2
-
---- ftd.image:
-src: $assets.files.images.cross.svg
-width: 32
-height: 32
-$on-click$: $is-open = false
-
---- container:  wrap-context
-
---- ftd.row:
-width: fill
-height: fill
-overflow-y: auto
-
---- ftd.column:
-width: fill
-align: center
-
---- ftd.row:
-align: center
-wrap: true
-
---- my-app: 
-index: $obj.index
-item: $obj.item
-$loop$: $apps.items as $obj
-$current-app: $current-app
-
-
-
-
-
-
-
-
-
-
--- ftd.column my-app:
-integer index:
-fpm.app-ui-item item:
-boolean is-active: false
-margin-bottom: 32
-integer $current-app: 
-/$on-global-key[enter]$: message-host $app-obj
-max-width: 90
-min-width: 90
-overflow-x: auto
-margin-right if not $is-mobile: 32
-margin-right if  $is-mobile: 28
-spacing: 12
-;height: 140
-$on-mouse-enter$: $is-active = true
-$on-mouse-leave$: $is-active = false
-;background-color: $fpm.color.main.background.step-1
-border-radius: 6
-
---- ftd.column:
-width: 90
-height: 90
-background-color: $fpm.color.main.background.step-1
-background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
-background-color if $is-active: $fpm.color.main.cta-tertiary.base
-border-radius: 6
-
---- ftd.image:
-if: $item.icon is not null
-src: $item.icon
-width: fill
-height: auto
-link: $item.url
-align: center
-/$on-global-key[enter]$: message-host $app-obj
-position: center
-anchor: parent
-padding-horizontal: $fpm.space.space-1
-padding-vertical: $fpm.space.space-1
-border-radius: 8
-
---- ftd.image:
-if: $item.icon is  null
-src: $assets.files.images.FTD.svg
-width: fill
-height: auto
-link: $item.url
-align: center
-/$on-global-key[enter]$: message-host $app-obj
-position: center
-anchor: parent
-padding-horizontal: $fpm.space.space-1
-padding-vertical: $fpm.space.space-1
-border-radius: 8
-
---- container: ftd.main
-
---- ftd.text: $item.name
-role: $fpm.type.fine-print
-color: $fpm.color.main.text-strong
-text-align: center
-width: fill
-link: $item.url
-padding-bottom: $fpm.space.space-1
-
-
-
-
-
-/-- object app-obj:
-function: enter
-url: 
+a = v
