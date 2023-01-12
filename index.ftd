@@ -2,9 +2,10 @@
 -- import: fifthtry.github.io/package-doc/doc as pd
 -- import: fifthtry.github.io/package-doc/code-block as cb
 -- import: fpm
+-- import: fpm/processors
 
 -- fpm.app-ui apps:
-$processor$: fpm-apps
+$processor$: processors.fpm-apps
 
 
 
@@ -20,7 +21,7 @@ width: fill-container
 height: fill-container
 
 -- app-switcher:
-item: $item
+apps: $apps
 
 -- end: ftd.column
 
@@ -83,18 +84,20 @@ $on-click$: $ftd.toggle($a=$app-switcher.is-open)
 -- ftd.column:
 max-height.fixed.px: 500
 overflow-y: auto
+width: fill-container
 
 -- ftd.row:
 wrap: true
 spacing.px: 32
 align-self: center
+align-content: center
 ;;$on-global-key[right]$: increment $current-app clamp 0 $apps.len
 ;;$on-global-key[left]$: decrement $current-app clamp 0 $apps.len
 
 -- myapp: 
 index: $obj.index
 item: $obj.item
-$loop$: $app-switcher.items as $obj
+$loop$: $app-switcher.apps.items as $obj
 $current-app: $app-switcher.current-app
 
 -- end: ftd.row
@@ -159,7 +162,7 @@ wrap: true
 -- myapp: 
 index: $obj.index
 item: $obj.item
-$loop$: $app-switcher.item as $obj
+$loop$: $app-switcher.apps.items as $obj
 $current-app: $app-switcher.current-app
 
 -- end: ftd.row
@@ -196,7 +199,7 @@ min-width.fixed.px: 90
 overflow-x: auto
 margin-right.px if { ftd.device == "mobile" }: 28
 spacing.px: 12
-;;height: 140 
+height.fixed.px: 140 
 $on-mouse-enter$: $ftd.set-bool($a=$myapp.is-active, v = true)
 $on-mouse-leave$: $ftd.set-bool($a=$myapp.is-active, v = false)
 border-radius.px: 6
@@ -210,7 +213,7 @@ background.solid if {myapp.is-active}: $inherited.colors.cta-tertiary.base
 border-radius.px: 6
 
 -- ftd.image:
-if: $myapp.item.icon is not null
+if: { myapp.item.icon != NULL }
 src: $myapp.item.icon
 link: $myapp.item.url
 width: fill-container
@@ -222,7 +225,7 @@ padding-vertical.px: 4
 border-radius.px: 8
 
 -- ftd.image:
-if: $myapp.item.icon is  null
+if: { myapp.item.icon == NULL }
 src: $assets.files.images.FTD.svg
 width: fill-container
 height: auto
