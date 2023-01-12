@@ -1,6 +1,7 @@
 -- import: fifthtry.github.io/app-switcher/assets
 -- import: fifthtry.github.io/package-doc/doc as pd
 -- import: fifthtry.github.io/package-doc/code-block as cb
+-- import: fpm
 
 -- fpm.app-ui apps:
 $processor$: fpm-apps
