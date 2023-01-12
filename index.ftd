@@ -114,7 +114,7 @@ align-content: center
 width: fill-container
 
 -- ftd.image:
-src: $assets.files.images.cross.svg
+src: $assets.files.images.app-switcher-mobile.svg
 anchor: window
 left.px: 14
 bottom.px: 20
