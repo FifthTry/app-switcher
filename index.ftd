@@ -1,17 +1,11 @@
 -- import: fifthtry.github.io/app-switcher/assets
 -- import: fifthtry.github.io/package-doc/doc as pd
 -- import: fifthtry.github.io/package-doc/code-block as cb
+-- import: fpm
+-- import: fpm/processors
 
 -- fpm.app-ui apps:
-$processor$: fpm-apps
-
--- boolean is-mobile: false
-
--- is-mobile: true
-if: $ftd.device == mobile
-
-
-
+$processor$: processors.fpm-apps
 
 
 
@@ -22,50 +16,14 @@ if: $ftd.device == mobile
 
 
 -- ftd.column:
-id: code-wrap
-width: fill
-align: center
-spacing: 20
-padding-horizontal: 20
-padding-vertical: 20
-background-color: $fpm.color.main.background.base
-
-
--- pd.package: App Switcher
-name: fifthtry.github.io/app-switcher
-
-The app-switcher package(fifthtry.github.io/app-switcher).
-
-How to use?
-
-Add below lines into `FPM.ftd` file:
-
--- cb.code:
-lang: ftd
-
-\-- fpm.dependency: fifthtry.github.io/app-switcher as as
-
-\-- fpm.auto-import: as
-
--- pd.hidden-code: apps definitions
-
-\-- fpm.app-ui apps:
-$processor$: fpm-apps
-
--- pd.output: Press `shift` key two times to see demo & press ESC to close
-
-You can call app-switcher copying below lines into your .ftd files
-
-\-- as.app-switcher:
-apps: $apps
-
-
-
-
+background.solid: $inherited.colors.background.step-1
+width: fill-container
+height: fill-container
 
 -- app-switcher:
 apps: $apps
 
+-- end: ftd.column
 
 
 
@@ -74,147 +32,150 @@ apps: $apps
 
 
 
--- ftd.column app-switcher:
+
+
+-- component app-switcher:
 fpm.app-ui apps:
-boolean is-open: false
-integer $current-app: 0
-border-radius: 10
-anchor: window
-position if $is-open: center
-position if not $is-open: bottom-left
-width: fill
-$on-global-key[shift-shift]$: $is-open = true
-$on-global-key[esc]$: $is-open = false
-if: $apps.items is not empty
-z-index: 1000
+boolean $is-open: true
+integer $current-app: 1
 
---- ftd.row:
-if: not $is-mobile
-width: fill
-height: fill
+-- ftd.column:
+width: fill-container
+height: fill-container
+align-content: center
+if: { !is_empty(apps.items)}
 
---- ftd.column:
-width: fill
-align: center
+-- ftd.column:
+if: { ftd.device != "mobile"}
+width: fill-container
+height: fill-container
+;; z-index: 1000
+align-content: center
 
---- ftd.column:
-min-width: 544
-max-width: 544
-width: auto
-align: center
+-- ftd.column:
+min-width.fixed.px: 544
+max-width.fixed.px: 544
+if: {app-switcher.is-open}
+width: fill-container
+border-radius.px: 6
+padding-top.px: 56
+background.solid: $inherited.colors.background.overlay
+padding-bottom.px: 56
+$on-global-key-seq[shift-shift]$: $ftd.set-bool($a = $app-switcher.is-open, v = true)
+$on-global-key[esc]$: $ftd.set-bool($a = $app-switcher.is-open, v = false)
 
---- ftd.column:
-if: $is-open
-width: fill
-id: inner-wrap
-padding-left: 42
-border-radius: 6
-padding-top: $fpm.space.space-10
-background-color: $fpm.color.main.background.overlay
-padding-bottom: $fpm.space.space-7
-
---- ftd.column:
+-- ftd.column:
 anchor: parent
-top: -14
-right: -14
-border-radius: 100
-padding-vertical: $fpm.space.space-1
-padding-horizontal: $fpm.space.space-1
-background-color: $fpm.color.main.background.step-2
+top.px: -14
+right.px: -14
+border-radius.px: 100
+padding-vertical.px: 4
+padding-horizontal.px: 4
+background.solid: $inherited.colors.background.step-2
 
---- ftd.image:
+-- ftd.image:
 src: $assets.files.images.cross.svg
-width: 24
-height: 24
-$on-click$: $is-open = false
+width.fixed.px: 24
+height.fixed.px: 24
+$on-click$: $ftd.toggle($a=$app-switcher.is-open)
 
---- container: inner-wrap
+-- end: ftd.column
 
---- ftd.column:
-width: fill
-max-height: 500
+-- ftd.column:
+max-height.fixed.px: 500
 overflow-y: auto
+width: fill-container
 
---- ftd.row:
-width: fill
+-- ftd.row:
 wrap: true
-margin-right: -32
-position: center
-$on-global-key[right]$: increment $current-app clamp 0 $apps.len
-$on-global-key[left]$: decrement $current-app clamp 0 $apps.len
+spacing.px: 32
+align-self: center
+align-content: center
+;;$on-global-key[right]$: increment $current-app clamp 0 $apps.len
+;;$on-global-key[left]$: decrement $current-app clamp 0 $apps.len
 
---- my-app: 
+-- myapp: 
 index: $obj.index
 item: $obj.item
-$loop$: $apps.items as $obj
-$current-app: $current-app
+$loop$: $app-switcher.apps.items as $obj
+$current-app: $app-switcher.current-app
 
---- container: ftd.main
+-- end: ftd.row
 
---- ftd.image:
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- ftd.row:
+if: {ftd.device == "mobile"}
+align-content: center
+width: fill-container
+
+-- ftd.image:
 src: $assets.files.images.app-switcher-mobile.svg
 anchor: window
-left: 14
-bottom: 20
-width: 40
-height: 40
-width if $is-open: 0
-height if $is-open: 0
-z-index: 99999
-$on-click$: $is-open = true
+left.px: 14
+bottom.px: 20
+width.fixed.px: 24
+height.fixed.px: 24
+;;z-index: 99999
+$on-click$: $ftd.toggle($a=$app-switcher.is-open)
 
---- ftd.column:
-if: $is-mobile
-width: fill
+-- ftd.column:
+if: {app-switcher.is-open}
+width: fill-container
+height: fill-container
+background.solid: $inherited.colors.background.overlay
+border-width.px: 1
+padding-vertical.px: 56
+padding-left.px: 32
+border-radius.px: 8
+;;z-index: 9999
 
---- ftd.column:
-if: $is-open
-width: fill
-height: fill
-background-color: $fpm.color.main.background.overlay
-border-width: 1
-padding-vertical: 56
-padding-left: 32
-border-radius: 8
-align: center
-z-index: 9999
-id: wrap-context
-
---- ftd.column:
+-- ftd.column:
 anchor: parent
-top: 4
-right: 4
-border-radius: 100
-padding-vertical: $fpm.space.space-1
-padding-horizontal: $fpm.space.space-1
-background-color: $fpm.color.main.background.step-2
+top.px: 4
+right.px: 4
+border-radius.px: 100
+padding-vertical.px: 4
+padding-horizontal.px: 4
+background.solid: $inherited.colors.background.step-2
 
---- ftd.image:
+-- ftd.image:
 src: $assets.files.images.cross.svg
-width: 32
-height: 32
-$on-click$: $is-open = false
+width.fixed.px: 32
+height.fixed.px: 32
+$on-click$: $ftd.toggle($a=$app-switcher.is-open)
 
---- container:  wrap-context
+-- end: ftd.column
 
---- ftd.row:
-width: fill
-height: fill
-overflow-y: auto
+-- ftd.column:
+width: fill-container
+align-self: center
 
---- ftd.column:
-width: fill
-align: center
-
---- ftd.row:
-align: center
+-- ftd.row:
+align-content: center
 wrap: true
 
---- my-app: 
+-- myapp: 
 index: $obj.index
 item: $obj.item
-$loop$: $apps.items as $obj
-$current-app: $current-app
+$loop$: $app-switcher.apps.items as $obj
+$current-app: $app-switcher.current-app
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: app-switcher
 
 
 
@@ -225,75 +186,64 @@ $current-app: $current-app
 
 
 
--- ftd.column my-app:
+-- component myapp:
 integer index:
 fpm.app-ui-item item:
-boolean is-active: false
-margin-bottom: 32
+boolean $is-active: false
 integer $current-app: 
-/$on-global-key[enter]$: message-host $app-obj
-max-width: 90
-min-width: 90
+
+-- ftd.column:
+margin-bottom.px: 32
+max-width.fixed.px: 90
+min-width.fixed.px: 90
 overflow-x: auto
-margin-right if not $is-mobile: 32
-margin-right if  $is-mobile: 28
-spacing: 12
-;height: 140
-$on-mouse-enter$: $is-active = true
-$on-mouse-leave$: $is-active = false
-;background-color: $fpm.color.main.background.step-1
-border-radius: 6
+margin-right.px if { ftd.device == "mobile" }: 28
+spacing.px: 12
+height.fixed.px: 140 
+$on-mouse-enter$: $ftd.set-bool($a=$myapp.is-active, v = true)
+$on-mouse-leave$: $ftd.set-bool($a=$myapp.is-active, v = false)
+border-radius.px: 6
 
---- ftd.column:
-width: 90
-height: 90
-background-color: $fpm.color.main.background.step-1
-background-color if $current-app == $index: $fpm.color.main.cta-tertiary.base
-background-color if $is-active: $fpm.color.main.cta-tertiary.base
-border-radius: 6
+-- ftd.column:
+width.fixed.px: 90
+height.fixed.px: 90
+background.solid: $inherited.colors.background.step-1
+background.solid if {myapp.current-app == myapp.index}: $inherited.colors.cta-tertiary.base
+background.solid if {myapp.is-active}: $inherited.colors.cta-tertiary.base
+border-radius.px: 6
 
---- ftd.image:
-if: $item.icon is not null
-src: $item.icon
-width: fill
+-- ftd.image:
+if: { myapp.item.icon != NULL }
+src: $myapp.item.icon
+link: $myapp.item.url
+width: fill-container
 height: auto
-link: $item.url
-align: center
-/$on-global-key[enter]$: message-host $app-obj
-position: center
 anchor: parent
-padding-horizontal: $fpm.space.space-1
-padding-vertical: $fpm.space.space-1
-border-radius: 8
+align-self: center
+padding-horizontal.px: 4
+padding-vertical.px: 4
+border-radius.px: 8
 
---- ftd.image:
-if: $item.icon is  null
+-- ftd.image:
+if: { myapp.item.icon == NULL }
 src: $assets.files.images.FTD.svg
-width: fill
+width: fill-container
 height: auto
-link: $item.url
-align: center
-/$on-global-key[enter]$: message-host $app-obj
-position: center
 anchor: parent
-padding-horizontal: $fpm.space.space-1
-padding-vertical: $fpm.space.space-1
-border-radius: 8
+align-self: center
+padding-horizontal.px: 4
+padding-vertical.px: 4
+border-radius.px: 8
 
---- container: ftd.main
+-- end: ftd.column
 
---- ftd.text: $item.name
-role: $fpm.type.fine-print
-color: $fpm.color.main.text-strong
+-- ftd.text: $myapp.item.name
+role: $inherited.types.fine-print
+color: $inherited.colors.text-strong
 text-align: center
-width: fill
-link: $item.url
-padding-bottom: $fpm.space.space-1
+width: fill-container
+padding-bottom.px: 4
 
+-- end: ftd.column
 
-
-
-
-/-- object app-obj:
-function: enter
-url: 
+-- end: myapp
