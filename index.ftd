@@ -9,6 +9,10 @@ $processor$: fpm-apps
 
 
 
+
+
+
+
 -- ftd.column:
 background.solid: $inherited.colors.background.step-1
 width: fill-container
@@ -18,6 +22,8 @@ height: fill-container
 item: $item
 
 -- end: ftd.column
+
+
 
 
 
@@ -44,7 +50,6 @@ height: fill-container
 ;; z-index: 1000
 align-content: center
 
-
 -- ftd.column:
 min-width.fixed.px: 544
 max-width.fixed.px: 544
@@ -56,7 +61,6 @@ background.solid: $inherited.colors.background.overlay
 padding-bottom.px: 56
 $on-global-key-seq[shift-shift]$: $ftd.set-bool($a = $app-switcher.is-open, v = true)
 $on-global-key[esc]$: $ftd.set-bool($a = $app-switcher.is-open, v = false)
-
 
 -- ftd.column:
 anchor: parent
@@ -110,10 +114,8 @@ src: $assets.files.images.cross.svg
 anchor: window
 left.px: 14
 bottom.px: 20
-width.fixed.px: 40
-height.fixed.px: 40
-width.fixed.px if {$app-switcher.is-open}: 0
-height.fixed.px if {$app-switcher.is-open}: 0
+width.fixed.px: 24
+height.fixed.px: 24
 ;;z-index: 99999
 $on-click$: $ftd.toggle($a=$app-switcher.is-open)
 
@@ -160,13 +162,21 @@ $loop$: $app-switcher.item as $obj
 $current-app: $app-switcher.current-app
 
 -- end: ftd.row
+
 -- end: ftd.column
+
 -- end: ftd.column
+
 -- end: ftd.row
 
 -- end: ftd.column
 
 -- end: app-switcher
+
+
+
+
+
 
 
 
@@ -190,7 +200,6 @@ $on-mouse-enter$: $ftd.set-bool($a=$myapp.is-active, v = true)
 $on-mouse-leave$: $ftd.set-bool($a=$myapp.is-active, v = false)
 border-radius.px: 6
 
-
 -- ftd.column:
 width.fixed.px: 90
 height.fixed.px: 90
@@ -198,7 +207,6 @@ background.solid: $inherited.colors.background.step-1
 background.solid if {myapp.current-app == myapp.index}: $inherited.colors.cta-tertiary.base
 background.solid if {myapp.is-active}: $inherited.colors.cta-tertiary.base
 border-radius.px: 6
-
 
 -- ftd.image:
 if: $myapp.item.icon is not null
