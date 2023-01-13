@@ -49,7 +49,7 @@ if: { !is_empty(apps.items)}
 if: { ftd.device != "mobile"}
 width: fill-container
 height: fill-container
-;; z-index: 1000
+z-index: 1000
 align-content: center
 
 -- ftd.column:
@@ -120,7 +120,7 @@ left.px: 14
 bottom.px: 20
 width.fixed.px: 24
 height.fixed.px: 24
-;;z-index: 99999
+z-index: 99999
 $on-click$: $ftd.toggle($a=$app-switcher.is-open)
 
 -- ftd.column:
@@ -132,7 +132,7 @@ border-width.px: 1
 padding-vertical.px: 56
 padding-left.px: 32
 border-radius.px: 8
-;;z-index: 9999
+z-index: 9999
 
 -- ftd.column:
 anchor: parent
