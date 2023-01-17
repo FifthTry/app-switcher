@@ -44,13 +44,20 @@ width: fill-container
 height: fill-container
 align-content: center
 if: { !is_empty(apps.items)}
+anchor: window
+z-index: 999999
 
 -- ftd.column:
 if: { ftd.device != "mobile"}
 width: fill-container
 height: fill-container
-z-index: 1000
+
+-- ftd.column:
+if: {app-switcher.is-open}
+width: fill-container
+height: fill-container
 align-content: center
+background.solid: $inherited.colors.background.overlay
 
 -- ftd.column:
 min-width.fixed.px: 544
@@ -59,7 +66,7 @@ if: {app-switcher.is-open}
 width: fill-container
 border-radius.px: 6
 padding-top.px: 56
-background.solid: $inherited.colors.background.overlay
+background.solid: $inherited.colors.background.step-1
 padding-bottom.px: 56
 $on-global-key-seq[shift-shift]$: $ftd.set-bool($a = $app-switcher.is-open, v = true)
 $on-global-key[esc]$: $ftd.set-bool($a = $app-switcher.is-open, v = false)
@@ -108,29 +115,38 @@ $current-app: $app-switcher.current-app
 
 -- end: ftd.column
 
+-- end: ftd.column
+
 -- ftd.row:
 if: {ftd.device == "mobile"}
 align-content: center
 width: fill-container
+height: fill-container
 
 -- ftd.image:
+if: {!app-switcher.is-open}
 src: $assets.files.images.app-switcher-mobile.svg
 anchor: window
 left.px: 14
 bottom.px: 20
 width.fixed.px: 24
 height.fixed.px: 24
-z-index: 99999
+z-index: 9999999
 $on-click$: $ftd.toggle($a=$app-switcher.is-open)
 
 -- ftd.column:
 if: {app-switcher.is-open}
 width: fill-container
 height: fill-container
+align-content: center
 background.solid: $inherited.colors.background.overlay
-border-width.px: 1
+
+-- ftd.column:
+width: fill-container
+background.solid: $inherited.colors.background.step-1
+;;border-width.px: 1
 padding-vertical.px: 56
-padding-left.px: 32
+padding-left.px: 24
 border-radius.px: 8
 z-index: 9999
 
@@ -145,8 +161,8 @@ background.solid: $inherited.colors.background.step-2
 
 -- ftd.image:
 src: $assets.files.images.cross.svg
-width.fixed.px: 32
-height.fixed.px: 32
+width.fixed.px: 12
+height.fixed.px: 12
 $on-click$: $ftd.toggle($a=$app-switcher.is-open)
 
 -- end: ftd.column
@@ -154,6 +170,8 @@ $on-click$: $ftd.toggle($a=$app-switcher.is-open)
 -- ftd.column:
 width: fill-container
 align-self: center
+overflow-y: auto
+max-height.fixed.px: 442
 
 -- ftd.row:
 align-content: center
@@ -166,6 +184,8 @@ $loop$: $app-switcher.apps.items as $obj
 $current-app: $app-switcher.current-app
 
 -- end: ftd.row
+
+-- end: ftd.column
 
 -- end: ftd.column
 
