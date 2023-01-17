@@ -36,7 +36,7 @@ apps: $apps
 
 -- component app-switcher:
 fpm.app-ui apps:
-boolean $is-open: true
+boolean $is-open: false
 integer $current-app: 1
 
 -- ftd.column:
