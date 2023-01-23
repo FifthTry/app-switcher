@@ -42,6 +42,10 @@ integer $current-app: 1
 -- ftd.column:
 width: fill-container
 height: fill-container
+
+-- ftd.column:
+width: fill-container
+height: fill-container
 align-content: center
 if: { !is_empty(apps.items)}
 anchor: window
@@ -192,6 +196,8 @@ $current-app: $app-switcher.current-app
 -- end: ftd.column
 
 -- end: ftd.row
+
+-- end: ftd.column
 
 -- end: ftd.column
 
