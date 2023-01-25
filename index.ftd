@@ -44,6 +44,7 @@ width: fill-container
 height: fill-container
 
 -- ftd.column:
+if: {app-switcher.is-open}
 width: fill-container
 height: fill-container
 align-content: center
@@ -269,6 +270,7 @@ color: $inherited.colors.text-strong
 text-align: center
 width: fill-container
 padding-bottom.px: 4
+
 
 -- end: ftd.column
 
