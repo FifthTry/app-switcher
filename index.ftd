@@ -48,7 +48,7 @@ if: {app-switcher.is-open}
 width: fill-container
 height: fill-container
 align-content: center
-if: { !is_empty(apps.items)}
+if: { !ftd.is_empty(apps.items)}
 anchor: window
 z-index: 999999
 
@@ -100,7 +100,7 @@ width: fill-container
 
 -- ftd.row:
 wrap: true
-spacing.px: 32
+spacing.fixed.px: 32
 align-self: center
 align-content: center
 ;;$on-global-key[right]$: increment $current-app clamp 0 $apps.len
@@ -225,7 +225,7 @@ max-width.fixed.px: 90
 min-width.fixed.px: 90
 overflow-x: auto
 margin-right.px if { ftd.device == "mobile" }: 28
-spacing.px: 12
+spacing.fixed.px: 12
 height.fixed.px: 140 
 $on-mouse-enter$: $ftd.set-bool($a=$myapp.is-active, v = true)
 $on-mouse-leave$: $ftd.set-bool($a=$myapp.is-active, v = false)
