@@ -1,11 +1,11 @@
 -- import: fifthtry.github.io/app-switcher/assets
 -- import: fifthtry.github.io/package-doc/doc as pd
 -- import: fifthtry.github.io/package-doc/code-block as cb
--- import: fastn
--- import: fastn/processors
+-- import: fpm
+-- import: fpm/processors
 
--- fastn.app-ui apps:
-$processor$: processors.fastn-apps
+-- fpm.app-ui apps:
+$processor$: processors.fpm-apps
 
 
 
@@ -35,7 +35,7 @@ apps: $apps
 
 
 -- component app-switcher:
-fastn.app-ui apps:
+fpm.app-ui apps:
 boolean $is-open: false
 integer $current-app: 1
 
@@ -215,7 +215,7 @@ $current-app: $app-switcher.current-app
 
 -- component myapp:
 integer index:
-fastn.app-ui-item item:
+fpm.app-ui-item item:
 boolean $is-active: false
 integer $current-app: 
 
