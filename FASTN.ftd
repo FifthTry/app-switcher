@@ -1,44 +1,44 @@
--- import: fpm
+-- import: fastn
 
--- fpm.package: fifthtry.github.io/app-switcher
+-- fastn.package: fifthtry.github.io/app-switcher
 download-base-url: https://raw.githubusercontent.com/fifthtry/app-switcher/main
 
--- fpm.dependency: fifthtry.github.io/package-doc as pd
+-- fastn.dependency: fifthtry.github.io/package-doc as pd
 
--- fpm.auto-import: fpm
+-- fastn.auto-import: fastn
 
 
--- fpm.app: Todos 
+-- fastn.app: Todos 
 mount-point: /todos/
 package: kameri-app.herokuapp.com
 end-point: https://kameri-service.herokuapp.com
-readers: fpm-fans
+readers: fastn-fans
 /config: db_url=$ENV.DB_URL
 /config: name=Upadhyay Khanadan
 
--- fpm.app: Kameri App
+-- fastn.app: Kameri App
 mount-point: /todos/
 package: kameri-app.herokuapp.com
 end-point: https://kameri-service.herokuapp.com
-readers: fpm-fans
-/config: db_url=$ENV.DB_URL
-/config: name=Upadhyay Khanadan
-
-
--- fpm.app: Movie DB
-mount-point: /todos/
-package: kameri-app.herokuapp.com
-end-point: https://kameri-service.herokuapp.com
-readers: fpm-fans
+readers: fastn-fans
 /config: db_url=$ENV.DB_URL
 /config: name=Upadhyay Khanadan
 
 
--- fpm.app: Todos for Family
+-- fastn.app: Movie DB
 mount-point: /todos/
 package: kameri-app.herokuapp.com
 end-point: https://kameri-service.herokuapp.com
-readers: fpm-fans
+readers: fastn-fans
+/config: db_url=$ENV.DB_URL
+/config: name=Upadhyay Khanadan
+
+
+-- fastn.app: Todos for Family
+mount-point: /todos/
+package: kameri-app.herokuapp.com
+end-point: https://kameri-service.herokuapp.com
+readers: fastn-fans
 /config: db_url=$ENV.DB_URL
 /config: name=Upadhyay Khanadan
 
