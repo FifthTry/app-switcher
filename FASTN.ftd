@@ -8,7 +8,7 @@ download-base-url: https://raw.githubusercontent.com/fifthtry/app-switcher/main
 -- fastn.auto-import: fastn
 
 
--- fastn.app: Todos 
+/-- fastn.app: Todos
 mount-point: /todos/
 package: kameri-app.herokuapp.com
 end-point: https://kameri-service.herokuapp.com
@@ -16,16 +16,7 @@ readers: fastn-fans
 /config: db_url=$ENV.DB_URL
 /config: name=Upadhyay Khanadan
 
--- fastn.app: Kameri App
-mount-point: /todos/
-package: kameri-app.herokuapp.com
-end-point: https://kameri-service.herokuapp.com
-readers: fastn-fans
-/config: db_url=$ENV.DB_URL
-/config: name=Upadhyay Khanadan
-
-
--- fastn.app: Movie DB
+/-- fastn.app: Kameri App
 mount-point: /todos/
 package: kameri-app.herokuapp.com
 end-point: https://kameri-service.herokuapp.com
@@ -34,7 +25,16 @@ readers: fastn-fans
 /config: name=Upadhyay Khanadan
 
 
--- fastn.app: Todos for Family
+/-- fastn.app: Movie DB
+mount-point: /todos/
+package: kameri-app.herokuapp.com
+end-point: https://kameri-service.herokuapp.com
+readers: fastn-fans
+/config: db_url=$ENV.DB_URL
+/config: name=Upadhyay Khanadan
+
+
+/-- fastn.app: Todos for Family
 mount-point: /todos/
 package: kameri-app.herokuapp.com
 end-point: https://kameri-service.herokuapp.com
