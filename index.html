@@ -13,28 +13,22 @@
 "len": 0
 },
 "fifthtry.github.io/app-switcher/assets#files.images.FTD.svg": {
-"dark": "/app-switcher/-/fifthtry.github.io/app-switcher/images/FTD.svg",
-"light": "/app-switcher/-/fifthtry.github.io/app-switcher/images/FTD.svg"
+"dark": "-/fifthtry.github.io/app-switcher/images/FTD.svg",
+"light": "-/fifthtry.github.io/app-switcher/images/FTD.svg"
 },
 "fifthtry.github.io/app-switcher/assets#files.images.app-switcher-mobile.svg": {
-"dark": "/app-switcher/-/fifthtry.github.io/app-switcher/images/app-switcher-mobile.svg",
-"light": "/app-switcher/-/fifthtry.github.io/app-switcher/images/app-switcher-mobile.svg"
+"dark": "-/fifthtry.github.io/app-switcher/images/app-switcher-mobile.svg",
+"light": "-/fifthtry.github.io/app-switcher/images/app-switcher-mobile.svg"
 },
 "fifthtry.github.io/app-switcher/assets#files.images.cross.svg": {
-"dark": "/app-switcher/-/fifthtry.github.io/app-switcher/images/cross.svg",
-"light": "/app-switcher/-/fifthtry.github.io/app-switcher/images/cross.svg"
+"dark": "-/fifthtry.github.io/app-switcher/images/cross.svg",
+"light": "-/fifthtry.github.io/app-switcher/images/cross.svg"
 },
 "ftd#breakpoint-width": {
 "mobile": 768
 },
 "ftd#dark-mode": false,
-"ftd#device": "desktop",
-"ftd#follow-system-dark-mode": true,
-"ftd#font-code": "sans-serif",
-"ftd#font-copy": "sans-serif",
-"ftd#font-display": "sans-serif",
-"ftd#system-dark-mode": false,
-"inherited#colors": {
+"ftd#default-colors": {
 "accent": {
 "primary": {
 "dark": "#2dd4bf",
@@ -52,11 +46,11 @@
 "background": {
 "base": {
 "dark": "#18181b",
-"light": "#18181b"
+"light": "#e7e7e4"
 },
 "code": {
-"dark": "#2B303B",
-"light": "#2B303B"
+"dark": "#21222C",
+"light": "#F5F5F5"
 },
 "overlay": {
 "dark": "rgba(0, 0, 0, 0.8)",
@@ -64,11 +58,11 @@
 },
 "step-1": {
 "dark": "#141414",
-"light": "#141414"
+"light": "#f3f3f3"
 },
 "step-2": {
 "dark": "#585656",
-"light": "#585656"
+"light": "#c9cece"
 }
 },
 "border": {
@@ -166,7 +160,7 @@
 },
 "text": {
 "dark": "#ffffff",
-"light": "#ffffff"
+"light": "#584b42"
 }
 },
 "cta-tertiary": {
@@ -243,7 +237,7 @@
 },
 "error": {
 "base": {
-"dark": "#f5bdbb",
+"dark": "#311b1f",
 "light": "#f5bdbb"
 },
 "border": {
@@ -257,7 +251,7 @@
 },
 "info": {
 "base": {
-"dark": "#c4edfd",
+"dark": "#15223a",
 "light": "#c4edfd"
 },
 "border": {
@@ -265,7 +259,7 @@
 "light": "#205694"
 },
 "text": {
-"dark": "#205694",
+"dark": "#1f6feb",
 "light": "#205694"
 }
 },
@@ -279,7 +273,7 @@
 },
 "success": {
 "base": {
-"dark": "#e3f0c4",
+"dark": "#405508ad",
 "light": "#e3f0c4"
 },
 "border": {
@@ -287,21 +281,21 @@
 "light": "#3d741f"
 },
 "text": {
-"dark": "#467b28",
+"dark": "#479f16",
 "light": "#467b28"
 }
 },
 "text": {
 "dark": "#a8a29e",
-"light": "#a8a29e"
+"light": "#584b42"
 },
 "text-strong": {
 "dark": "#ffffff",
-"light": "#ffffff"
+"light": "#141414"
 },
 "warning": {
 "base": {
-"dark": "#fbefba",
+"dark": "#544607a3",
 "light": "#fbefba"
 },
 "border": {
@@ -309,12 +303,12 @@
 "light": "#966220"
 },
 "text": {
-"dark": "#966220",
+"dark": "#d07f19",
 "light": "#966220"
 }
 }
 },
-"inherited#types": {
+"ftd#default-types": {
 "blockquote": {
 "desktop": {
 "font-family": "sans-serif",
@@ -537,7 +531,13 @@
 "weight": 400
 }
 }
-}
+},
+"ftd#device": "desktop",
+"ftd#follow-system-dark-mode": true,
+"ftd#font-code": "sans-serif",
+"ftd#font-copy": "sans-serif",
+"ftd#font-display": "sans-serif",
+"ftd#system-dark-mode": false
 }
 </script>
 <script type="ftd" id="ftd-external-children">
@@ -596,6 +596,164 @@ white-space: break-spaces;
 *, :after, :before {
 box-sizing: inherit;
 }
+*, :after, :before {
+box-sizing: inherit;
+}
+
+*, pre, div {
+padding: 0;
+margin: 0;
+gap: 0;
+}
+
+
+body, ol ol, ol ul, ul ol, ul ul {
+margin:0
+}
+pre, table{
+overflow:auto
+}
+html {
+height: 100%;
+width: 100%;
+}
+
+body {
+height: 100%;
+width: 100%;
+word-wrap: break-word;
+}
+input, code {
+vertical-align: middle;
+}
+pre {
+white-space: break-spaces;
+}
+html {
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizelegibility;
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+}
+iframe {
+border: 0;
+color-scheme: auto;
+}
+
+pre code {
+overflow-x: auto;
+display: block;
+padding: 10px !important;
+}
+
+.ft_md ul,
+.ft_md ol{
+margin: 10px 0;
+}
+
+.ft_md ul ul,
+.ft_md ul ol,
+.ft_md ol ul,
+.ft_md ol ol {
+margin: 0;
+}
+
+.ft_md ul li,
+.ft_md ol li,
+.ft_md ul ol li .ft_md ul ul li .ft_md ol ul li .ft_md ol ol li {
+position: relative;
+padding-left: 32px;
+margin: 4px 0;
+}
+
+.ft_md ul {
+list-style: none;
+padding-left: 0;
+}
+
+.ft_md ol {
+list-style: none;
+padding-left: 0;
+counter-reset: item;
+}
+
+.ft_md ol li:before,
+.ft_md ol ol li:before,
+.ft_md ul ol li:before {
+content: counter(item);
+counter-increment: item;
+font-size: 11px;
+line-height: 10px;
+text-align: center;
+padding: 4px 0;
+height: 10px;
+width: 18px;
+border-radius: 10px;
+position: absolute;
+left: 0;
+top: 5px;
+}
+
+.ft_md ul li::before,
+.ft_md ul ul li::before,
+.ft_md ol ul li::before {
+content: "";
+position: absolute;
+width: 6px;
+height: 6px;
+left: 8px;
+top: 10px;
+border-radius: 50%;
+background: #c1c8ce;
+}
+
+.ft_md a {
+text-decoration: none;
+color: #6262ee;
+}
+
+.ft_md a:visited {
+text-decoration: none;
+color: #ad71e4;
+}
+
+
+
+.ft_md a:hover {
+text-decoration: none;
+}
+
+.ft_md code {
+padding: 0.1rem 0.25rem;
+border-radius: 4px;
+background-color: #0000000d;
+}
+
+.ft_md blockquote {
+padding: 0.25rem 1rem;
+margin: 1rem 0;
+border-radius: 3px;
+}
+
+.ft_md blockquote > blockquote {
+margin: 0;
+}
+
+body.fpm-dark .ft_md a {
+text-decoration: none;
+}
+
+
+body.fpm-dark .ft_md code {
+padding: 0.1rem 0.25rem;
+border-radius: 4px;
+background-color: #ffffff1f;
+}
+
+
+.markdown p {
+margin-block-end: 1em;
+}
 
 
 </style>
@@ -603,56 +761,258 @@ box-sizing: inherit;
 </head>
 <body style="height: 100%; margin: 0;">
 
-<div data-id="main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: 100%; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0:main" style="align-items: start; background-color: rgba(20,20,20,1); border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: 100%; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: 100%; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0,0:main" style="align-items: center; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: none; flex-direction: column; height: 100%; justify-content: center; position: fixed; text-decoration: none; width: 100%; z-index: 999999" ><div data-id="0,0,0,0:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: 100%; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0,0,0,0:main" style="align-items: center; background-color: rgba(0,0,0,0.8); border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: none; flex-direction: column; height: 100%; justify-content: center; text-decoration: none; width: 100%" ><div data-id="0,0,0,0,0,0:main" style="align-items: start; background-color: rgba(20,20,20,1); border-bottom-width: 0px; border-left-width: 0px; border-radius: 6px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; cursor: pointer; display: none; flex-direction: column; height: auto; justify-content: start; max-width: 544px; min-width: 544px; padding-bottom: 56px; padding-top: 56px; position: relative; text-decoration: none; width: 100%" ><div data-id="0,0,0,0,0,0,0:main" style="align-items: start; background-color: rgba(88,86,86,1); border-bottom-width: 0px; border-left-width: 0px; border-radius: 100px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; padding-bottom: 4px; padding-left: 4px; padding-right: 4px; padding-top: 4px; position: absolute; right: -14px; text-decoration: none; top: -14px; width: auto" ><img data-id="0,0,0,0,0,0,0,0:main" src="/app-switcher/-/fifthtry.github.io/app-switcher/images/cross.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;name&quot;:&quot;ftd__toggle___main&quot;,&quot;values&quot;:[[&quot;a&quot;,{&quot;mutable&quot;:true,&quot;reference&quot;:&quot;fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0&quot;}]]}]', this)" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; cursor: pointer; height: 24px; text-decoration: none; width: 24px" ></img></div><div data-id="0,0,0,0,0,0,1:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; max-height: 500px; overflow-y: auto; text-decoration: none; width: 100%" ><div data-id="0,0,0,0,0,0,1,0:main" style="align-items: center; align-self: center; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: wrap; gap: 32px; height: auto; justify-content: flex-start; text-decoration: none; width: auto" ></div></div></div></div></div><div data-id="0,0,0,1:main" style="align-items: center; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: none; flex-direction: row; height: 100%; justify-content: center; text-decoration: none; width: 100%" ><img data-id="0,0,0,1,0:main" src="/app-switcher/-/fifthtry.github.io/app-switcher/images/app-switcher-mobile.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;name&quot;:&quot;ftd__toggle___main&quot;,&quot;values&quot;:[[&quot;a&quot;,{&quot;mutable&quot;:true,&quot;reference&quot;:&quot;fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0&quot;}]]}]', this)" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; bottom: 20px; box-sizing: border-box; cursor: pointer; height: 24px; left: 14px; position: fixed; text-decoration: none; width: 24px; z-index: 9999999" ></img><div data-id="0,0,0,1,1:main" style="align-items: center; background-color: rgba(0,0,0,0.8); border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: none; flex-direction: column; height: 100%; justify-content: center; text-decoration: none; width: 100%" ><div data-id="0,0,0,1,1,0:main" style="align-items: start; background-color: rgba(20,20,20,1); border-bottom-width: 0px; border-left-width: 0px; border-radius: 8px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; padding-bottom: 56px; padding-left: 24px; padding-top: 56px; position: relative; text-decoration: none; width: 100%; z-index: 9999" ><div data-id="0,0,0,1,1,0,0:main" style="align-items: start; background-color: rgba(88,86,86,1); border-bottom-width: 0px; border-left-width: 0px; border-radius: 100px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; padding-bottom: 4px; padding-left: 4px; padding-right: 4px; padding-top: 4px; position: absolute; right: 4px; text-decoration: none; top: 4px; width: auto" ><img data-id="0,0,0,1,1,0,0,0:main" src="/app-switcher/-/fifthtry.github.io/app-switcher/images/cross.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;name&quot;:&quot;ftd__toggle___main&quot;,&quot;values&quot;:[[&quot;a&quot;,{&quot;mutable&quot;:true,&quot;reference&quot;:&quot;fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0&quot;}]]}]', this)" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; cursor: pointer; height: 12px; text-decoration: none; width: 12px" ></img></div><div data-id="0,0,0,1,1,0,1:main" style="align-items: start; align-self: center; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; max-height: 442px; overflow-y: auto; text-decoration: none; width: 100%" ><div data-id="0,0,0,1,1,0,1,0:main" style="align-items: center; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: wrap; height: auto; justify-content: center; text-decoration: none; width: auto" ></div></div></div></div></div></div></div></div></div>
+<div data-id="main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: 100%; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0:main" style="align-items: start; background-color: rgba(243,243,243,1); border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: 100%; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: 100%; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0,0:main" style="align-items: center; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: none; flex-direction: column; height: 100%; justify-content: center; position: fixed; text-decoration: none; width: 100%; z-index: 999999" ><div data-id="0,0,0,0:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: 100%; justify-content: start; text-decoration: none; width: 100%" ><div data-id="0,0,0,0,0:main" style="align-items: center; background-color: rgba(0,0,0,0.8); border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: none; flex-direction: column; height: 100%; justify-content: center; text-decoration: none; width: 100%" ><div data-id="0,0,0,0,0,0:main" style="align-items: start; background-color: rgba(243,243,243,1); border-bottom-width: 0px; border-left-width: 0px; border-radius: 6px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: none; flex-direction: column; height: auto; justify-content: start; max-width: 544px; min-width: 544px; padding-bottom: 56px; padding-top: 56px; position: relative; text-decoration: none; width: 100%" ><div data-id="0,0,0,0,0,0,0:main" style="align-items: start; background-color: rgba(201,206,206,1); border-bottom-width: 0px; border-left-width: 0px; border-radius: 100px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; padding-bottom: 4px; padding-left: 4px; padding-right: 4px; padding-top: 4px; position: absolute; right: -14px; text-decoration: none; top: -14px; width: auto" ><img data-id="0,0,0,0,0,0,0,0:main" src="-/fifthtry.github.io/app-switcher/images/cross.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;name&quot;:&quot;ftd__toggle___main&quot;,&quot;values&quot;:[[&quot;a&quot;,{&quot;mutable&quot;:true,&quot;reference&quot;:&quot;fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0&quot;}]]}]', this)" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; cursor: pointer; height: 24px; text-decoration: none; width: 24px" ></img></div><div data-id="0,0,0,0,0,0,1:main" style="align-items: start; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; max-height: 500px; overflow-y: auto; text-decoration: none; width: 100%" ><div data-id="0,0,0,0,0,0,1,0:main" style="align-items: center; align-self: center; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: wrap; gap: 32px; height: auto; justify-content: center; text-decoration: none; width: auto" ></div></div></div></div></div><div data-id="0,0,0,1:main" style="align-items: center; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: none; flex-direction: row; height: 100%; justify-content: center; text-decoration: none; width: 100%" ><img data-id="0,0,0,1,0:main" src="-/fifthtry.github.io/app-switcher/images/app-switcher-mobile.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;name&quot;:&quot;ftd__toggle___main&quot;,&quot;values&quot;:[[&quot;a&quot;,{&quot;mutable&quot;:true,&quot;reference&quot;:&quot;fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0&quot;}]]}]', this)" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; bottom: 20px; box-sizing: border-box; cursor: pointer; height: 24px; left: 14px; position: fixed; text-decoration: none; width: 24px; z-index: 9999999" ></img><div data-id="0,0,0,1,1:main" style="align-items: center; background-color: rgba(0,0,0,0.8); border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: none; flex-direction: column; height: 100%; justify-content: center; text-decoration: none; width: 100%" ><div data-id="0,0,0,1,1,0:main" style="align-items: start; background-color: rgba(243,243,243,1); border-bottom-width: 0px; border-left-width: 0px; border-radius: 8px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; padding-bottom: 56px; padding-left: 24px; padding-top: 56px; position: relative; text-decoration: none; width: 100%; z-index: 9999" ><div data-id="0,0,0,1,1,0,0:main" style="align-items: start; background-color: rgba(201,206,206,1); border-bottom-width: 0px; border-left-width: 0px; border-radius: 100px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; padding-bottom: 4px; padding-left: 4px; padding-right: 4px; padding-top: 4px; position: absolute; right: 4px; text-decoration: none; top: 4px; width: auto" ><img data-id="0,0,0,1,1,0,0,0:main" src="-/fifthtry.github.io/app-switcher/images/cross.svg" onclick="window.ftd.handle_event(event, 'main', '[{&quot;name&quot;:&quot;ftd__toggle___main&quot;,&quot;values&quot;:[[&quot;a&quot;,{&quot;mutable&quot;:true,&quot;reference&quot;:&quot;fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0&quot;}]]}]', this)" style="border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; cursor: pointer; height: 12px; text-decoration: none; width: 12px" ></img></div><div data-id="0,0,0,1,1,0,1:main" style="align-items: start; align-self: center; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: column; height: auto; justify-content: start; max-height: 442px; overflow-y: auto; text-decoration: none; width: 100%" ><div data-id="0,0,0,1,1,0,1,0:main" style="align-items: center; border-bottom-width: 0px; border-left-width: 0px; border-right-width: 0px; border-style: solid; border-top-width: 0px; box-sizing: border-box; display: flex; flex-direction: row; flex-wrap: wrap; height: auto; justify-content: center; text-decoration: none; width: auto" ></div></div></div></div></div></div></div></div></div>
 
 
 <script>
 "use strict";
-function enable_dark_mode() {
-window.enable_system_mode();
+window.ftd = (function () {
+let ftd_data = {};
+let exports = {};
+// Setting up default value on <input>
+const inputElements = document.querySelectorAll('input[data-dv]');
+for (let input_ele of inputElements) {
+// @ts-ignore
+input_ele.defaultValue = input_ele.dataset.dv;
 }
-function enable_light_mode() {
-window.enable_system_mode();
+exports.init = function (id, data) {
+let element = document.getElementById(data);
+if (!!element) {
+ftd_data[id] = JSON.parse(element.innerText);
+window.ftd.post_init();
 }
-function enable_system_mode() {
-window.enable_system_mode();
-}
-function is_empty(str) {
-return (!str || str.length === 0);
-}
-function fallbackCopyTextToClipboard(text) {
-var textArea = document.createElement("textarea");
-textArea.value = text;
-// Avoid scrolling to bottom
-textArea.style.top = "0";
-textArea.style.left = "0";
-textArea.style.position = "fixed";
-document.body.appendChild(textArea);
-textArea.focus();
-textArea.select();
+};
+exports.data = ftd_data;
+function handle_function(evt, id, action, obj, function_arguments) {
+console.log(id, action);
+console.log(action.name);
+let argument;
+for (argument in action.values) {
+if (action.values.hasOwnProperty(argument)) {
+// @ts-ignore
+let value = action.values[argument][1] !== undefined ? action.values[argument][1] : action.values[argument];
+if (typeof value === 'object') {
+let function_argument = value;
+if (!!function_argument && !!function_argument.reference) {
+let obj_value = null;
+let obj_checked = null;
 try {
-var successful = document.execCommand('copy');
-var msg = successful ? 'successful' : 'unsuccessful';
-console.log('Fallback: Copying text command was ' + msg);
+obj_value = obj.value;
+obj_checked = obj.checked;
 }
-catch (err) {
-console.error('Fallback: Oops, unable to copy', err);
+catch (_a) {
+obj_value = null;
+obj_checked = null;
 }
-document.body.removeChild(textArea);
+let value = resolve_reference(function_argument.reference, ftd_data[id], obj_value, obj_checked);
+if (!!function_argument.mutable) {
+function_argument.value = value;
+function_arguments.push(function_argument);
 }
-// source: https://stackoverflow.com/questions/400212/ (cc-by-sa)
-function copy_to_clipboard(text) {
-if (!navigator.clipboard) {
-fallbackCopyTextToClipboard(text);
+else {
+function_arguments.push(deepCopy(value));
+}
+}
+}
+else {
+function_arguments.push(value);
+}
+}
+}
+return window[action.name](...function_arguments, function_arguments, ftd_data[id], id);
+}
+function handle_event(evt, id, action, obj) {
+let function_arguments = [];
+handle_function(evt, id, action, obj, function_arguments);
+// @ts-ignore
+if (function_arguments["CHANGE_VALUE"] !== false) {
+change_value(function_arguments, ftd_data[id], id);
+}
+}
+exports.handle_event = function (evt, id, event, obj) {
+console_log(id, event);
+let actions = JSON.parse(event);
+for (const action in actions) {
+handle_event(evt, id, actions[action], obj);
+}
+};
+exports.handle_function = function (evt, id, event, obj) {
+console_log(id, event);
+let actions = JSON.parse(event);
+let function_arguments = [];
+return handle_function(evt, id, actions, obj, function_arguments);
+};
+exports.get_value = function (id, variable) {
+let data = ftd_data[id];
+let [var_name, _] = get_name_and_remaining(variable);
+if (data[var_name] === undefined && data[variable] === undefined) {
+console_log(variable, "is not in data, ignoring");
 return;
 }
-navigator.clipboard.writeText(text).then(function () {
-console.log('Async: Copying to clipboard was successful!');
-}, function (err) {
-console.error('Async: Could not copy text: ', err);
-});
+return get_data_value(data, variable);
+};
+exports.set_string_for_all = function (variable, value) {
+for (let id in ftd_data) {
+if (!ftd_data.hasOwnProperty(id)) {
+continue;
 }
-function http(url, method, ...request_data) {
+// @ts-ignore
+exports.set_value_by_id(id, variable, value);
+}
+};
+exports.set_bool_for_all = function (variable, value) {
+for (let id in ftd_data) {
+if (!ftd_data.hasOwnProperty(id)) {
+continue;
+}
+// @ts-ignore
+exports.set_bool(id, variable, value);
+}
+};
+exports.set_bool = function (id, variable, value) {
+window.ftd.set_value_by_id(id, variable, value);
+};
+exports.set_value = function (variable, value) {
+window.ftd.set_value_by_id("main", variable, value);
+};
+exports.set_value_by_id = function (id, variable, value) {
+let data = ftd_data[id];
+let [var_name, remaining] = data[variable] === undefined
+? get_name_and_remaining(variable)
+: [variable, null];
+if (data[var_name] === undefined && data[variable] === undefined) {
+console_log(variable, "is not in data, ignoring");
+return;
+}
+window.ftd.delete_list(var_name, id);
+if (!!window["set_value_" + id] && !!window["set_value_" + id][var_name]) {
+window["set_value_" + id][var_name](data, value, remaining);
+}
+else {
+set_data_value(data, variable, value);
+}
+window.ftd.create_list(var_name, id);
+};
+exports.is_empty = function (str) {
+return (!str || str.length === 0);
+};
+exports.set_list = function (array, value, args, data, id) {
+args["CHANGE_VALUE"] = false;
+window.ftd.clear(array, args, data, id);
+args[0].value = value;
+change_value(args, data, id);
+window.ftd.create_list(args[0].reference, id);
+return array;
+};
+exports.create_list = function (array_name, id) {
+if (!!window.dummy_data_main && !!window.dummy_data_main[array_name]) {
+let data = ftd_data[id];
+let dummys = window.dummy_data_main[array_name](data);
+for (let i in dummys) {
+let [htmls, data_id, start_index] = dummys[i];
+for (let i in htmls) {
+let nodes = stringToHTML(htmls[i]);
+let main = document.querySelector(`[data-id="${data_id}"]`);
+main === null || main === void 0 ? void 0 : main.insertBefore(nodes.children[0], main.children[start_index + parseInt(i)]);
+/*for (var j = 0, len = nodes.childElementCount; j < len; ++j) {
+main?.insertBefore(nodes.children[j], main.children[start_index + parseInt(i)]);
+}*/
+}
+}
+}
+};
+exports.append = function (array, value, args, data, id) {
+array.push(value);
+args["CHANGE_VALUE"] = false;
+args[0].value = array;
+change_value(args, data, id);
+if (!!window.dummy_data_main && !!window.dummy_data_main[args[0].reference]) {
+// @ts-ignore
+let list = resolve_reference(args[0].reference, data);
+let dummys = window.dummy_data_main[args[0].reference](data, "LAST");
+for (let i in dummys) {
+let [html, data_id, start_index] = dummys[i];
+let nodes = stringToHTML(html);
+let main = document.querySelector(`[data-id="${data_id}"]`);
+for (var j = 0, len = nodes.childElementCount; j < len; ++j) {
+// @ts-ignore
+main.insertBefore(nodes.children[j], main.children[start_index + list.length - 1]);
+}
+}
+}
+return array;
+};
+exports.insert_at = function (array, value, idx, args, data, id) {
+array.push(value);
+args["CHANGE_VALUE"] = false;
+args[0].value = array;
+change_value(args, data, id);
+if (!!window.dummy_data_main && !!window.dummy_data_main[args[0].reference]) {
+// @ts-ignore
+let list = resolve_reference(args[0].reference, data);
+let dummys = window.dummy_data_main[args[0].reference](data, "LAST");
+for (let i in dummys) {
+let [html, data_id, start_index] = dummys[i];
+let nodes = stringToHTML(html);
+let main = document.querySelector(`[data-id="${data_id}"]`);
+if (idx >= list.length) {
+idx = list.length - 1;
+}
+else if (idx < 0) {
+idx = 0;
+}
+// @ts-ignore
+main.insertBefore(nodes.children[0], main.children[start_index + idx]);
+}
+}
+return array;
+};
+exports.clear = function (array, args, data, id) {
+args["CHANGE_VALUE"] = false;
+// @ts-ignore
+window.ftd.delete_list(args[0].reference, id);
+args[0].value = [];
+change_value(args, data, id);
+return array;
+};
+exports.delete_list = function (array_name, id) {
+if (!!window.dummy_data_main && !!window.dummy_data_main[array_name]) {
+let data = ftd_data[id];
+let length = resolve_reference(array_name, data, null, null).length;
+let dummys = window.dummy_data_main[array_name](data);
+for (let j in dummys) {
+let [_, data_id, start_index] = dummys[j];
+let main = document.querySelector(`[data-id="${data_id}"]`);
+for (var i = length - 1 + start_index; i >= start_index; i--) {
+main === null || main === void 0 ? void 0 : main.removeChild(main.children[i]);
+}
+}
+}
+};
+exports.delete_at = function (array, idx, args, data, id) {
+// @ts-ignore
+let length = resolve_reference(args[0].reference, data).length;
+if (idx >= length) {
+idx = length - 1;
+}
+else if (idx < 0) {
+idx = 0;
+}
+array.splice(idx, 1);
+args["CHANGE_VALUE"] = false;
+args[0].value = array;
+change_value(args, data, id);
+if (!!window.dummy_data_main && !!window.dummy_data_main[args[0].reference]) {
+let dummys = window.dummy_data_main[args[0].reference](data);
+for (let i in dummys) {
+let [_, data_id, start_index] = dummys[i];
+let main = document.querySelector(`[data-id="${data_id}"]`);
+main === null || main === void 0 ? void 0 : main.removeChild(main.children[start_index + idx]);
+}
+}
+return array;
+};
+exports.http = function (url, method, ...request_data) {
 let method_name = method.trim().toUpperCase();
 if (method_name == "GET") {
 let query_parameters = new URLSearchParams();
@@ -735,126 +1095,27 @@ window.ftd.set_value(ftd_variable, data[ftd_variable]);
 }
 };
 xhr.send(JSON.stringify(json));
-}
-window.ftd = (function () {
-let ftd_data = {};
-let exports = {};
-exports.init = function (id, data) {
-let element = document.getElementById(data);
-if (!!element) {
-ftd_data[id] = JSON.parse(element.innerText);
-window.ftd.post_init();
-}
 };
-function handle_function(evt, id, action, obj, function_arguments) {
-console.log(id, action);
-console.log(action.name);
-let argument;
-for (argument in action.values) {
-if (action.values.hasOwnProperty(argument)) {
-// @ts-ignore
-let value = action.values[argument][1] !== undefined ? action.values[argument][1] : action.values[argument];
-if (typeof value === 'object') {
-let function_argument = value;
-if (!!function_argument && !!function_argument.reference) {
-let obj_value = null;
-let obj_checked = null;
-try {
-obj_value = obj.value;
-obj_checked = obj.checked
-}
-catch (_a) {
-obj_value = null;
-obj_checked = null;
-}
-let value = resolve_reference(function_argument.reference, ftd_data[id], obj_value, obj_checked);
-if (!!function_argument.mutable) {
-function_argument.value = value;
-function_arguments.push(function_argument);
-}
-else {
-function_arguments.push(deepCopy(value));
-}
-}
-}
-else {
-function_arguments.push(value);
-}
-}
-}
-return window[action.name](...function_arguments);
-}
-function handle_event(evt, id, action, obj) {
-let function_arguments = [];
-handle_function(evt, id, action, obj, function_arguments);
-change_value(function_arguments, ftd_data[id], id);
-}
-exports.handle_event = function (evt, id, event, obj) {
-console_log(id, event);
-let actions = JSON.parse(event);
-for (const action in actions) {
-handle_event(evt, id, actions[action], obj);
-}
-};
-exports.handle_function = function (evt, id, event, obj) {
-console_log(id, event);
-let actions = JSON.parse(event);
-let function_arguments = [];
-return handle_function(evt, id, actions, obj, function_arguments);
-};
-exports.get_value = function (id, variable) {
-let data = ftd_data[id];
-let [var_name, _] = get_name_and_remaining(variable);
-if (data[var_name] === undefined && data[variable] === undefined) {
-console_log(variable, "is not in data, ignoring");
+// source: https://stackoverflow.com/questions/400212/ (cc-by-sa)
+exports.copy_to_clipboard = function (text) {
+if (!navigator.clipboard) {
+fallbackCopyTextToClipboard(text);
 return;
 }
-return get_data_value(data, variable);
+navigator.clipboard.writeText(text).then(function () {
+console.log('Async: Copying to clipboard was successful!');
+}, function (err) {
+console.error('Async: Could not copy text: ', err);
+});
 };
-exports.set_string_for_all = function (variable, value) {
-for (let id in ftd_data) {
-if (!ftd_data.hasOwnProperty(id)) {
-continue;
-}
+exports.component_data = function (component) {
+let data = {};
+for (let idx in component.getAttributeNames()) {
+let argument = component.getAttributeNames()[idx];
 // @ts-ignore
-exports.set_value_by_id(id, variable, value);
+data[argument] = eval(component.getAttribute(argument));
 }
-};
-exports.set_bool_for_all = function (variable, value) {
-for (let id in ftd_data) {
-if (!ftd_data.hasOwnProperty(id)) {
-continue;
-}
-// @ts-ignore
-exports.set_bool(id, variable, value);
-}
-};
-exports.set_bool = function (id, variable, value) {
-window.ftd.set_value_by_id(id, variable, value);
-};
-exports.set_value = function (variable, value) {
-window.ftd.set_value_by_id("main", variable, value);
-};
-exports.set_value_by_id = function (id, variable, value) {
-let data = ftd_data[id];
-let [var_name, remaining] = get_name_and_remaining(variable);
-if (data[var_name] === undefined && data[variable] === undefined) {
-console_log(variable, "is not in data, ignoring");
-return;
-}
-if (!!window["set_value_" + id] && !!window["set_value_" + id][var_name]) {
-window["set_value_" + id][var_name](data, value, remaining);
-}
-else {
-set_data_value(data, variable, value);
-}
-};
-exports.is_empty = function (str) {
-return (!str || str.length === 0);
-};
-exports.append = function (array, value) {
-array.push(value);
-return array;
+return data;
 };
 return exports;
 })();
@@ -1145,25 +1406,12 @@ console.log(...message);
 function isObject(obj) {
 return obj != null && typeof obj === 'object' && obj === Object(obj);
 }
-function resolve_reference(reference, data, value, checked) {
-if (reference === "VALUE") {
-return value;
+function stringToHTML(str) {
+var parser = new DOMParser();
+var doc = parser.parseFromString(str, 'text/html');
+return doc.body;
 }
-if (reference === "CHECKED") {
-return checked;
-}
-if (!!data[reference]) {
-return deepCopy(data[reference]);
-}
-let [var_name, remaining] = get_name_and_remaining(reference);
-let initial_value = data[var_name];
-while (!!remaining) {
-let [p1, p2] = split_once(remaining, ".");
-initial_value = initial_value[p1];
-remaining = p2;
-}
-return deepCopy(initial_value);
-}
+;
 function get_name_and_remaining(name) {
 let part1 = "";
 let pattern_to_split_at = name;
@@ -1226,6 +1474,26 @@ formatted = formatted.replace(regexp, arguments[i]);
 }
 return formatted;
 };
+String.prototype.replace_format = function () {
+var formatted = this;
+if (arguments.length > 0) {
+// @ts-ignore
+for (let [header, value] of Object.entries(arguments[0])) {
+var regexp = new RegExp('\\{(' + header + '(\\..*?)?)\\}', 'gi');
+let matching = formatted.match(regexp);
+for (let i in matching) {
+try {
+// @ts-ignore
+formatted = formatted.replace(matching[i], resolve_reference(matching[i].substring(1, matching[i].length - 1), arguments[0]));
+}
+catch (e) {
+continue;
+}
+}
+}
+}
+return formatted;
+};
 function set_data_value(data, name, value) {
 if (!!data[name]) {
 data[name] = deepCopy(set(data[name], null, value));
@@ -1244,11 +1512,17 @@ initial_value[p1] = set(initial_value[p1], p2, value);
 return initial_value;
 }
 }
-function get_data_value(data, name) {
-if (!!data[name]) {
-return deepCopy(data[name]);
+function resolve_reference(reference, data, value, checked) {
+if (reference === "VALUE") {
+return value;
 }
-let [var_name, remaining] = get_name_and_remaining(name);
+if (reference === "CHECKED") {
+return checked;
+}
+if (!!data[reference]) {
+return deepCopy(data[reference]);
+}
+let [var_name, remaining] = get_name_and_remaining(reference);
 let initial_value = data[var_name];
 while (!!remaining) {
 let [p1, p2] = split_once(remaining, ".");
@@ -1257,6 +1531,9 @@ remaining = p2;
 }
 return deepCopy(initial_value);
 }
+function get_data_value(data, name) {
+return resolve_reference(name, data, null, null);
+}
 function JSONstringify(f) {
 if (typeof f === 'object') {
 return JSON.stringify(f);
@@ -1264,6 +1541,36 @@ return JSON.stringify(f);
 else {
 return f;
 }
+}
+function download_text(filename, text) {
+const blob = new Blob([text], { type: 'text/plain' });
+const link = document.createElement('a');
+link.href = window.URL.createObjectURL(blob);
+link.download = filename;
+link.click();
+}
+function len(data) {
+return data.length;
+}
+function fallbackCopyTextToClipboard(text) {
+var textArea = document.createElement("textarea");
+textArea.value = text;
+// Avoid scrolling to bottom
+textArea.style.top = "0";
+textArea.style.left = "0";
+textArea.style.position = "fixed";
+document.body.appendChild(textArea);
+textArea.focus();
+textArea.select();
+try {
+var successful = document.execCommand('copy');
+var msg = successful ? 'successful' : 'unsuccessful';
+console.log('Fallback: Copying text command was ' + msg);
+}
+catch (err) {
+console.error('Fallback: Oops, unable to copy', err);
+}
+document.body.removeChild(textArea);
 }
 (function () {
 document.addEventListener('keypress', (event) => {
@@ -1370,55 +1677,67 @@ e.rel = "prefetch", e.href = t, document.head.appendChild(e), n.add(t)
 
 
 
-function ftd__enable_dark_mode___main(){
-return (enable_dark_mode());
+function ftd__clean_code___main(a,lang,args,data,id){
+return (ftd.clean_code(a,lang,args,data,id));
 }
 
 
 
-function ftd__enable_light_mode___main(){
-return (enable_light_mode());
+function ftd__copy_to_clipboard___main(a,args,data,id){
+return (ftd.copy_to_clipboard(a,args,data,id));
 }
 
 
 
-function ftd__enable_system_mode___main(){
-return (enable_system_mode());
+function ftd__enable_dark_mode___main(args,data,id){
+return (enable_dark_mode(args,data,id));
 }
 
 
 
-function ftd__increment___main(a){
+function ftd__enable_light_mode___main(args,data,id){
+return (enable_light_mode(args,data,id));
+}
+
+
+
+function ftd__enable_system_mode___main(args,data,id){
+return (enable_system_mode(args,data,id));
+}
+
+
+
+function ftd__increment___main(a,args,data,id){
 return (a.value += 1);
 }
 
 
 
-function ftd__increment_by___main(a,v){
+function ftd__increment_by___main(a,v,args,data,id){
 return (a.value += v);
 }
 
 
 
-function ftd__set_bool___main(a,v){
+function ftd__set_bool___main(a,v,args,data,id){
 a.value = v
 }
 
 
 
-function ftd__set_integer___main(a,v){
+function ftd__set_integer___main(a,v,args,data,id){
 a.value = v
 }
 
 
 
-function ftd__set_string___main(a,v){
+function ftd__set_string___main(a,v,args,data,id){
 a.value = v
 }
 
 
 
-function ftd__toggle___main(a){
+function ftd__toggle___main(a,args,data,id){
 a.value = !a.value
 }
 
@@ -1426,9 +1745,9 @@ a.value = !a.value
 window.node_change_main = {};
 window.node_change_main["0:main__background-color"] = function(data) {
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.step-1", data, null).light;
+document.querySelector(`[data-id="0:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.step-1", data).light;
 }
-else {document.querySelector(`[data-id="0:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.step-1", data, null).dark;}
+else {document.querySelector(`[data-id="0:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.step-1", data).dark;}
 }
 
 window.node_change_main["0,0,0:main__display"] = function(data) {
@@ -1460,9 +1779,9 @@ else {document.querySelector(`[data-id="0,0,0,0,0:main"]`).style["display"] = "n
 
 window.node_change_main["0,0,0,0,0:main__background-color"] = function(data) {
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0,0,0,0:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.overlay", data, null).light;
+document.querySelector(`[data-id="0,0,0,0,0:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.overlay", data).light;
 }
-else {document.querySelector(`[data-id="0,0,0,0,0:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.overlay", data, null).dark;}
+else {document.querySelector(`[data-id="0,0,0,0,0:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.overlay", data).dark;}
 }
 
 window.node_change_main["0,0,0,0,0,0:main__display"] = function(data) {
@@ -1476,23 +1795,28 @@ else {document.querySelector(`[data-id="0,0,0,0,0,0:main"]`).style["display"] = 
 
 window.node_change_main["0,0,0,0,0,0:main__background-color"] = function(data) {
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0,0,0,0,0:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.step-1", data, null).light;
+document.querySelector(`[data-id="0,0,0,0,0,0:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.step-1", data).light;
 }
-else {document.querySelector(`[data-id="0,0,0,0,0,0:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.step-1", data, null).dark;}
+else {document.querySelector(`[data-id="0,0,0,0,0,0:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.step-1", data).dark;}
 }
 
 window.node_change_main["0,0,0,0,0,0,0:main__background-color"] = function(data) {
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0,0,0,0,0,0:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.step-2", data, null).light;
+document.querySelector(`[data-id="0,0,0,0,0,0,0:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.step-2", data).light;
 }
-else {document.querySelector(`[data-id="0,0,0,0,0,0,0:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.step-2", data, null).dark;}
+else {document.querySelector(`[data-id="0,0,0,0,0,0,0:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.step-2", data).dark;}
 }
 
 window.node_change_main["0,0,0,0,0,0,0,0:main__src"] = function(data) {
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0,0,0,0,0,0,0:main"]`).setAttribute("src", resolve_reference("fifthtry.github.io/app-switcher/assets#files.images.cross.svg", data, null).light);
+document.querySelector(`[data-id="0,0,0,0,0,0,0,0:main"]`).setAttribute("src", resolve_reference("fifthtry.github.io/app-switcher/assets#files.images.cross.svg", data).light);
 }
-else {document.querySelector(`[data-id="0,0,0,0,0,0,0,0:main"]`).setAttribute("src", resolve_reference("fifthtry.github.io/app-switcher/assets#files.images.cross.svg", data, null).dark);}
+else {document.querySelector(`[data-id="0,0,0,0,0,0,0,0:main"]`).setAttribute("src", resolve_reference("fifthtry.github.io/app-switcher/assets#files.images.cross.svg", data).dark);}
+
+
+if (document.querySelector(`[data-id="0,0,0,0,0,0,0,0:main"]`).getAttribute("src") == "REMOVE-KEY"){
+document.querySelector(`[data-id="0,0,0,0,0,0,0,0:main"]`).removeAttribute("src");
+}
 }
 window.node_change_main["0,0,0,1:main__display"] = function(data) {
 if(function(){
@@ -1514,9 +1838,14 @@ else {document.querySelector(`[data-id="0,0,0,1,0:main"]`).style["display"] = "n
 
 window.node_change_main["0,0,0,1,0:main__src"] = function(data) {
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0,0,1,0:main"]`).setAttribute("src", resolve_reference("fifthtry.github.io/app-switcher/assets#files.images.app-switcher-mobile.svg", data, null).light);
+document.querySelector(`[data-id="0,0,0,1,0:main"]`).setAttribute("src", resolve_reference("fifthtry.github.io/app-switcher/assets#files.images.app-switcher-mobile.svg", data).light);
 }
-else {document.querySelector(`[data-id="0,0,0,1,0:main"]`).setAttribute("src", resolve_reference("fifthtry.github.io/app-switcher/assets#files.images.app-switcher-mobile.svg", data, null).dark);}
+else {document.querySelector(`[data-id="0,0,0,1,0:main"]`).setAttribute("src", resolve_reference("fifthtry.github.io/app-switcher/assets#files.images.app-switcher-mobile.svg", data).dark);}
+
+
+if (document.querySelector(`[data-id="0,0,0,1,0:main"]`).getAttribute("src") == "REMOVE-KEY"){
+document.querySelector(`[data-id="0,0,0,1,0:main"]`).removeAttribute("src");
+}
 }
 window.node_change_main["0,0,0,1,1:main__display"] = function(data) {
 if(function(){
@@ -1529,30 +1858,35 @@ else {document.querySelector(`[data-id="0,0,0,1,1:main"]`).style["display"] = "n
 
 window.node_change_main["0,0,0,1,1:main__background-color"] = function(data) {
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0,0,1,1:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.overlay", data, null).light;
+document.querySelector(`[data-id="0,0,0,1,1:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.overlay", data).light;
 }
-else {document.querySelector(`[data-id="0,0,0,1,1:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.overlay", data, null).dark;}
+else {document.querySelector(`[data-id="0,0,0,1,1:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.overlay", data).dark;}
 }
 
 window.node_change_main["0,0,0,1,1,0:main__background-color"] = function(data) {
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0,0,1,1,0:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.step-1", data, null).light;
+document.querySelector(`[data-id="0,0,0,1,1,0:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.step-1", data).light;
 }
-else {document.querySelector(`[data-id="0,0,0,1,1,0:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.step-1", data, null).dark;}
+else {document.querySelector(`[data-id="0,0,0,1,1,0:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.step-1", data).dark;}
 }
 
 window.node_change_main["0,0,0,1,1,0,0:main__background-color"] = function(data) {
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0,0,1,1,0,0:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.step-2", data, null).light;
+document.querySelector(`[data-id="0,0,0,1,1,0,0:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.step-2", data).light;
 }
-else {document.querySelector(`[data-id="0,0,0,1,1,0,0:main"]`).style["background-color"] = resolve_reference("inherited#colors.background.step-2", data, null).dark;}
+else {document.querySelector(`[data-id="0,0,0,1,1,0,0:main"]`).style["background-color"] = resolve_reference("ftd#default-colors.background.step-2", data).dark;}
 }
 
 window.node_change_main["0,0,0,1,1,0,0,0:main__src"] = function(data) {
 if(!data["ftd#dark-mode"]){
-document.querySelector(`[data-id="0,0,0,1,1,0,0,0:main"]`).setAttribute("src", resolve_reference("fifthtry.github.io/app-switcher/assets#files.images.cross.svg", data, null).light);
+document.querySelector(`[data-id="0,0,0,1,1,0,0,0:main"]`).setAttribute("src", resolve_reference("fifthtry.github.io/app-switcher/assets#files.images.cross.svg", data).light);
 }
-else {document.querySelector(`[data-id="0,0,0,1,1,0,0,0:main"]`).setAttribute("src", resolve_reference("fifthtry.github.io/app-switcher/assets#files.images.cross.svg", data, null).dark);}
+else {document.querySelector(`[data-id="0,0,0,1,1,0,0,0:main"]`).setAttribute("src", resolve_reference("fifthtry.github.io/app-switcher/assets#files.images.cross.svg", data).dark);}
+
+
+if (document.querySelector(`[data-id="0,0,0,1,1,0,0,0:main"]`).getAttribute("src") == "REMOVE-KEY"){
+document.querySelector(`[data-id="0,0,0,1,1,0,0,0:main"]`).removeAttribute("src");
+}
 }
 window.set_value_main = {};
 window.set_value_main["fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0"] = function (data, new_value, remaining) {
@@ -1562,15 +1896,23 @@ set_data_value(data, "fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0"
 set_data_value(data, "fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0", new_value);
 }
 
+if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0"]) {
+let changes = window.ftd.mutable_value_main["fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0"].changes;
+for(let i in changes) { changes[i](); }
+}
+if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0"]) {
+let changes = window.ftd.immutable_value_main["fifthtry.github.io/app-switcher/#app-switcher:is-open:0,0"].changes;
+for(let i in changes) { changes[i](); }
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__display"]){window.node_change_main["0,0,0,0,0:main__display"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0,0:main__display"]){window.node_change_main["0,0,0,0,0,0:main__display"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__display"]){window.node_change_main["0,0,0,1,0:main__display"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__display"]){window.node_change_main["0,0,0,1,1:main__display"](data);
-}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0:main__display"]){window.node_change_main["0,0,0:main__display"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0,0:main__display"]){window.node_change_main["0,0,0,0,0,0:main__display"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__display"]){window.node_change_main["0,0,0,1,1:main__display"](data);
 }
 };
 
@@ -1581,6 +1923,14 @@ set_data_value(data, "fifthtry.github.io/app-switcher/assets#files.images.app-sw
 set_data_value(data, "fifthtry.github.io/app-switcher/assets#files.images.app-switcher-mobile.svg", new_value);
 }
 
+if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/app-switcher/assets#files.images.app-switcher-mobile.svg"]) {
+let changes = window.ftd.mutable_value_main["fifthtry.github.io/app-switcher/assets#files.images.app-switcher-mobile.svg"].changes;
+for(let i in changes) { changes[i](); }
+}
+if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/app-switcher/assets#files.images.app-switcher-mobile.svg"]) {
+let changes = window.ftd.immutable_value_main["fifthtry.github.io/app-switcher/assets#files.images.app-switcher-mobile.svg"].changes;
+for(let i in changes) { changes[i](); }
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__src"]){window.node_change_main["0,0,0,1,0:main__src"](data);
 }
 };
@@ -1592,9 +1942,17 @@ set_data_value(data, "fifthtry.github.io/app-switcher/assets#files.images.cross.
 set_data_value(data, "fifthtry.github.io/app-switcher/assets#files.images.cross.svg", new_value);
 }
 
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0,0,0,0:main__src"]){window.node_change_main["0,0,0,0,0,0,0,0:main__src"](data);
+if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["fifthtry.github.io/app-switcher/assets#files.images.cross.svg"]) {
+let changes = window.ftd.mutable_value_main["fifthtry.github.io/app-switcher/assets#files.images.cross.svg"].changes;
+for(let i in changes) { changes[i](); }
+}
+if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["fifthtry.github.io/app-switcher/assets#files.images.cross.svg"]) {
+let changes = window.ftd.immutable_value_main["fifthtry.github.io/app-switcher/assets#files.images.cross.svg"].changes;
+for(let i in changes) { changes[i](); }
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1,0,0,0:main__src"]){window.node_change_main["0,0,0,1,1,0,0,0:main__src"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0,0,0,0:main__src"]){window.node_change_main["0,0,0,0,0,0,0,0:main__src"](data);
 }
 };
 
@@ -1605,25 +1963,33 @@ set_data_value(data, "ftd#dark-mode" + "." + remaining, new_value);
 set_data_value(data, "ftd#dark-mode", new_value);
 }
 
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1,0,0:main__background-color"]){window.node_change_main["0,0,0,1,1,0,0:main__background-color"](data);
+if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["ftd#dark-mode"]) {
+let changes = window.ftd.mutable_value_main["ftd#dark-mode"].changes;
+for(let i in changes) { changes[i](); }
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1,0,0,0:main__src"]){window.node_change_main["0,0,0,1,1,0,0,0:main__src"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__src"]){window.node_change_main["0,0,0,1,0:main__src"](data);
+if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["ftd#dark-mode"]) {
+let changes = window.ftd.immutable_value_main["ftd#dark-mode"].changes;
+for(let i in changes) { changes[i](); }
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0,0:main__background-color"]){window.node_change_main["0,0,0,0,0,0:main__background-color"](data);
-}
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0,0,0:main__background-color"]){window.node_change_main["0,0,0,0,0,0,0:main__background-color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0:main__background-color"]){window.node_change_main["0:main__background-color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0,0,0,0:main__src"]){window.node_change_main["0,0,0,0,0,0,0,0:main__src"](data);
 }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__background-color"]){window.node_change_main["0,0,0,0,0:main__background-color"](data);
+}
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1:main__background-color"]){window.node_change_main["0,0,0,1,1:main__background-color"](data);
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1,0:main__background-color"]){window.node_change_main["0,0,0,1,1,0:main__background-color"](data);
 }
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0:main__background-color"]){window.node_change_main["0,0,0,0,0:main__background-color"](data);
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0,0,0,0:main__background-color"]){window.node_change_main["0,0,0,0,0,0,0:main__background-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1,0,0:main__background-color"]){window.node_change_main["0,0,0,1,1,0,0:main__background-color"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,0:main__src"]){window.node_change_main["0,0,0,1,0:main__src"](data);
+}
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1,1,0,0,0:main__src"]){window.node_change_main["0,0,0,1,1,0,0,0:main__src"](data);
 }
 };
 
@@ -1634,11 +2000,23 @@ set_data_value(data, "ftd#device" + "." + remaining, new_value);
 set_data_value(data, "ftd#device", new_value);
 }
 
-if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__display"]){window.node_change_main["0,0,0,1:main__display"](data);
+if (!!window.ftd.mutable_value_main && !!window.ftd.mutable_value_main["ftd#device"]) {
+let changes = window.ftd.mutable_value_main["ftd#device"].changes;
+for(let i in changes) { changes[i](); }
+}
+if (!!window.ftd.immutable_value_main && !!window.ftd.immutable_value_main["ftd#device"]) {
+let changes = window.ftd.immutable_value_main["ftd#device"].changes;
+for(let i in changes) { changes[i](); }
 }
 if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,0:main__display"]){window.node_change_main["0,0,0,0:main__display"](data);
 }
+if(!!window["node_change_main"] && !!window.node_change_main["0,0,0,1:main__display"]){window.node_change_main["0,0,0,1:main__display"](data);
+}
 };
+
+
+
+
 
 window.ftd.init("main", "ftd-data", "ftd-external-children");
 </script>
