@@ -44,21 +44,22 @@ width: fill-container
 height: fill-container
 
 -- ftd.column:
-if: {app-switcher.is-open}
+if: { app-switcher.is-open }
 width: fill-container
 height: fill-container
 align-content: center
-if: { !ftd.is_empty(apps.items)}
+if: { !ftd.is_empty(apps.items) }
 anchor: window
 z-index: 999999
 
+-- ftd.desktop:
+
 -- ftd.column:
-if: { ftd.device != "mobile"}
 width: fill-container
 height: fill-container
 
 -- ftd.column:
-if: {app-switcher.is-open}
+if: { app-switcher.is-open }
 width: fill-container
 height: fill-container
 align-content: center
@@ -67,7 +68,7 @@ background.solid: $inherited.colors.background.overlay
 -- ftd.column:
 min-width.fixed.px: 544
 max-width.fixed.px: 544
-if: {app-switcher.is-open}
+if: { app-switcher.is-open }
 width: fill-container
 border-radius.px: 6
 padding-top.px: 56
@@ -103,8 +104,6 @@ wrap: true
 spacing.fixed.px: 32
 align-self: center
 align-content: center
-;;$on-global-key[right]$: increment $current-app clamp 0 $apps.len
-;;$on-global-key[left]$: decrement $current-app clamp 0 $apps.len
 
 -- myapp: 
 index: $obj.index
@@ -122,14 +121,17 @@ $current-app: $app-switcher.current-app
 
 -- end: ftd.column
 
+-- end: ftd.desktop
+
+-- ftd.mobile:
+
 -- ftd.row:
-if: {ftd.device == "mobile"}
 align-content: center
 width: fill-container
 height: fill-container
 
 -- ftd.image:
-if: {!app-switcher.is-open}
+if: { !app-switcher.is-open }
 src: $assets.files.images.app-switcher-mobile.svg
 anchor: window
 left.px: 14
@@ -140,7 +142,7 @@ z-index: 9999999
 $on-click$: $ftd.toggle($a=$app-switcher.is-open)
 
 -- ftd.column:
-if: {app-switcher.is-open}
+if: { app-switcher.is-open }
 width: fill-container
 height: fill-container
 align-content: center
@@ -149,7 +151,6 @@ background.solid: $inherited.colors.background.overlay
 -- ftd.column:
 width: fill-container
 background.solid: $inherited.colors.background.step-1
-;;border-width.px: 1
 padding-vertical.px: 56
 padding-left.px: 24
 border-radius.px: 8
@@ -198,6 +199,8 @@ $current-app: $app-switcher.current-app
 
 -- end: ftd.row
 
+-- end: ftd.mobile
+
 -- end: ftd.column
 
 -- end: ftd.column
@@ -227,16 +230,16 @@ overflow-x: auto
 margin-right.px if { ftd.device == "mobile" }: 28
 spacing.fixed.px: 12
 height.fixed.px: 140 
-$on-mouse-enter$: $ftd.set-bool($a=$myapp.is-active, v = true)
-$on-mouse-leave$: $ftd.set-bool($a=$myapp.is-active, v = false)
+$on-mouse-enter$: $ftd.set-bool($a = $myapp.is-active, v = true)
+$on-mouse-leave$: $ftd.set-bool($a = $myapp.is-active, v = false)
 border-radius.px: 6
 
 -- ftd.column:
 width.fixed.px: 90
 height.fixed.px: 90
 background.solid: $inherited.colors.background.step-1
-background.solid if {myapp.current-app == myapp.index}: $inherited.colors.cta-tertiary.base
-background.solid if {myapp.is-active}: $inherited.colors.cta-tertiary.base
+background.solid if { myapp.current-app == myapp.index }: $inherited.colors.cta-tertiary.base
+background.solid if { myapp.is-active }: $inherited.colors.cta-tertiary.base
 border-radius.px: 6
 
 -- ftd.image:
